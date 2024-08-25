@@ -22,13 +22,15 @@ public class PlayerMovement : MonoBehaviour
 
         var size = _bc.size;
         var orthographicSize = Camera.main.orthographicSize;
+        var position = transform.position;
         
-        transform.position = new Vector3 
+        position = new Vector3 
         (
-            Mathf.Clamp (_rb.position.x, -orthographicSize + size.x / 2, orthographicSize - size.x / 2),
-            Mathf.Clamp (_rb.position.y, -orthographicSize + size.y / 2, orthographicSize - size.y / 2),
+            Mathf.Clamp (position.x, -orthographicSize + size.x / 2, orthographicSize - size.x / 2),
+            Mathf.Clamp (position.y, -orthographicSize + size.y / 2, orthographicSize - size.y / 2),
             0.0f
         );
+        transform.position = position;
     }
 
     private void FixedUpdate()
