@@ -6,21 +6,27 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 3;
     private float _currentHealth;
+    private Rigidbody2D _rb;
+    private readonly float _knockbackMult = 1.0f;
     
     private void Awake()
     {
+        _rb = GetComponent<Rigidbody2D>();
         _currentHealth = _maxHealth;
     }
-
-    private void Update()
+    
+    public void TakeDamage(Vector2 force,int damage)
     {
+        // Knockback
+        _rb.AddForce(force * _knockbackMult, ForceMode2D.Impulse);
         
-    }
-
-    public void TakeDamage(float damage)
-    {
+        // Subtract Health
         _currentHealth -= damage;
         
+        //int random = UnityEngine.Random.Range(0, 4);
+        //AudioHelper.PlayClip2D(enemyHitSFX[random], 1);
+        //healthBar.localScale = new Vector3((((float)_currentHealth / (float)_maxHealth) * 0.315f), healthBar.localScale.y, healthBar.localScale.z);
+
         if (_currentHealth <= 0)
         {
             Death();
@@ -29,6 +35,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void Death()
     {
+        //Instantiate(_ps, transform.position, Quaternion.identity);
+        //int random = UnityEngine.Random.Range(0, 3);
+        //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
+        
         Destroy(gameObject);
     }
 }

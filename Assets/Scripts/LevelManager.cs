@@ -12,11 +12,13 @@ public class LevelManager : MonoBehaviour
 
     private void Update() 
     {
+        // Restart Level
         if (Input.GetKeyDown(KeyCode.R)) 
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
+        // Exit Game
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             Application.Quit();

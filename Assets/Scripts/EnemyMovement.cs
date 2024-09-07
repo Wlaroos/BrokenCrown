@@ -11,9 +11,4 @@ public class EnemyMovement : MonoBehaviour
     {
         _bc = GetComponent<BoxCollider2D>();
     }
-
-    private void Update()
-    {
-
-    }
 }

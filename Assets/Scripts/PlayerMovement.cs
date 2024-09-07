@@ -18,11 +18,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Movement
         _movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
     private void FixedUpdate()
     {
+        // Velocity in direction
         _rb.velocity = _movementDirection * _movementSpeed;
     }
 }

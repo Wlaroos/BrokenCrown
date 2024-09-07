@@ -15,6 +15,11 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Transform _shootTransform2;
 
     private Vector3 _mousePos;
+    
+    [SerializeField] private float _shotSpeed = 20f;
+    [SerializeField] private int _damage = 1;
+    [SerializeField] private float _knockback = 25f;
+    [SerializeField] private float _size = 0.5f;
 
     [SerializeField] private bool _isAuto;
     [SerializeField] private float _fireDelay;
@@ -22,8 +27,6 @@ public class PlayerWeapon : MonoBehaviour
 
     private bool _gunEndPoint = true;
     private bool _allowInput = true;
-
-    [SerializeField] private float _bulletSize;
 
     private void OnEnable()
     {
@@ -41,9 +44,11 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Aim()
     {
+        // Mouse position from screen to world point
         _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _mousePos.z = 0f;
 
+        // Aiming calculations
         Vector3 aimDir = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle - 90);
@@ -66,7 +71,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (_isAuto)
         {
-            if (Input.GetMouseButton(0) && Time.time > _fireDelay + _startFireTime)
+            if (Input.GetMouseButton(0) && Time.time > _startFireTime + _fireDelay)
             {
                 //CameraShake.Instance.CamShake();
                 Shoot();
@@ -86,32 +91,42 @@ public class PlayerWeapon : MonoBehaviour
     {
         //AudioManager.PlaySound("PoisonShot");
         
+        // Local variables
         Vector3 aimPosition = _aimTransform.position;
         Vector3 gunEndPointPosition1 = _shootTransform1.position;
         Vector3 gunEndPointPosition2 = _shootTransform2.position;
 
+        Transform bulletTransform;
+
         Vector3 aimDir = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         
+        // Alternating the firing location from two positions
         if (_gunEndPoint)
         {
-            Transform bulletTransform = Instantiate(_bulletRef.transform, gunEndPointPosition1, Quaternion.identity);
-            Vector3 shootDir = (aimPosition - transform.position).normalized;
-            bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, 20, 1, 3, _bulletSize);
+            // Position 1
+             bulletTransform = Instantiate(_bulletRef.transform, gunEndPointPosition1, Quaternion.identity);
         }
         else
         {
-            Transform bulletTransform = Instantiate(_bulletRef.transform, gunEndPointPosition2, Quaternion.identity);
-            Vector3 shootDir = (aimPosition - transform.position).normalized;
-            bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, 20, 1, 3, _bulletSize);
+            // Position 2
+             bulletTransform = Instantiate(_bulletRef.transform, gunEndPointPosition2, Quaternion.identity);
         }
         
+        // Aim calculation
+        Vector3 shootDir = (aimPosition - transform.position).normalized;
+        
+        // Create and setup the bullet
+        bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, _shotSpeed, _damage, _knockback, _size);
+        
+        // Boolean for alternating firing position
         _gunEndPoint = !_gunEndPoint;
 
         // Recoil
         //transform.GetChild(0).position = transform.GetChild(0).position += (-shootDir * 0.75f);
         //transform.GetChild(0).localRotation = (Quaternion.Euler(0,0,30));
 
+        // Reset starting time for bullet firing calculations
         _startFireTime = Time.time;
 
         // Event
