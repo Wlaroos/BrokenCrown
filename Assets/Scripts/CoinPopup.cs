@@ -20,6 +20,8 @@ public class CoinPopup : MonoBehaviour
         StartCoroutine(Fade(1f));
     }
     
+    
+    // Fade out alpha and scale
     private IEnumerator Fade(float fadeDuration)
     {
         float elapsedTime = 0f;

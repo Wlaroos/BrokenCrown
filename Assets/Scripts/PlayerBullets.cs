@@ -79,7 +79,8 @@ public class PlayerBullets : MonoBehaviour
         }
     }
 
-    public IEnumerator DestroyBullet(float delay)
+    // Destroy bullet and create particles
+    private IEnumerator DestroyBullet(float delay)
     {
         
         yield return new WaitForSeconds(delay);
@@ -96,7 +97,8 @@ public class PlayerBullets : MonoBehaviour
         Destroy(gameObject); 
     }
     
-    public IEnumerator Fade(float fadeDuration)
+    // Bullet's alpha fades over time
+    private IEnumerator Fade(float fadeDuration)
     {
         Color initialColor = _sr.color;
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
@@ -113,7 +115,7 @@ public class PlayerBullets : MonoBehaviour
         Destroy();
     }
 
-    public void Destroy()
+    private void Destroy()
     {
         StartCoroutine(DestroyBullet(0f));
     }

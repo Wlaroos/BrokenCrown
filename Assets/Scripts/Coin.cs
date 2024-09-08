@@ -27,13 +27,17 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerStats>() != null)
+        // This is done so that the coins can interact with the walls and each other
+        // The player picks them up via their 'CoinTrigger' child that is on the Coin layer instead of the Player layer
+        if (other.name == "CoinTrigger")
         {
-            other.GetComponent<PlayerStats>().AddMoney(_amount);
+            // PlayerStats in is parent object as stated above
+            other.GetComponentInParent<PlayerStats>().AddMoney(_amount);
 
+            // Create the coin popup and have is spawn slightly above the player
             var position = other.transform.position;
-            Transform scorePop = Instantiate(_coinPopup, new Vector3(position.x, position.y + 1.33f, position.z), Quaternion.identity);
-            scorePop.GetComponent<TMP_Text>().text = _amount.ToString();
+            Transform coinPop = Instantiate(_coinPopup, new Vector3(position.x, position.y + 1.33f, position.z), Quaternion.identity);
+            coinPop.GetComponent<TMP_Text>().text = _amount.ToString();
             
             Remove();
         }
@@ -51,51 +55,39 @@ public class Coin : MonoBehaviour
     
     private void CoinSetup()
     {
+        
+        // Weighted random chance for coin amounts
         const int pennyChance = 100;
         const int nickleChance = 20;
         const int dimeChance = 10;
         const int quarterChance = 5;
         
-        int value = 0;
-        
         float x = Random.Range(0, pennyChance + nickleChance + dimeChance + quarterChance);
 
+        // Switch case for which coin gets chosen
         switch (x)
         {
+            // Penny
             case < pennyChance:
-                value = 1;
-                break;
-            case < pennyChance + nickleChance:
-                value = 2;
-                break;
-            case < pennyChance + nickleChance + dimeChance:
-                value = 3;
-                break;
-            default:
-                value = 4;
-                break;
-        }
-
-        switch (value)
-        {
-            case 1:
                 _amount = 0.01f;
                 _sr.sprite = _coinSprite[0];
                 break;
-            case 2:
+            // Nickle
+            case < pennyChance + nickleChance:
                 _amount = 0.05f;
                 _sr.sprite = _coinSprite[1];
                 break;
-            case 3:
+            // Dime
+            case < pennyChance + nickleChance + dimeChance:
                 _amount = 0.10f;
                 _sr.sprite = _coinSprite[2];
                 break;
-            case 4:
+            // Quarter
+            default:
                 _amount = 0.25f;
                 _sr.sprite = _coinSprite[3];
                 break;
         }
-
     }
 
     private void Remove()

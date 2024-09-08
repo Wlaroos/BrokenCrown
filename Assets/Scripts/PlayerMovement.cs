@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Velocity in direction
+        // Apply velocity in direction
         if (!_isKnockback)
         {
             _rb.velocity = _movementDirection * _movementSpeed;
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 aimDir = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         
-        // Flip
+        // Flip sprite based on where you are aiming
         if (angle > 90 || angle < -90)
         {
             _sr.flipX = true;
@@ -62,10 +62,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Knockback(Vector2 force, float duration)
     {
-        StopAllCoroutines();
         StartCoroutine(KnockbackStart(force, duration));
     }
     
+    // Player can't move while knocked back
+    // Red is when player can't move, magenta is for iFrames since that code turns the sprite white again
     private IEnumerator KnockbackStart(Vector2 force, float duration)
     {
         _isKnockback = true;

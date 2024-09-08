@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
         // Subtract Health
         _currentHealth -= damage;
 
+        // Weighted random for how many coins spawn
         const int oneChance = 70;
         const int twoChance = 20;
         const int threeChance = 10;
@@ -43,17 +44,21 @@ public class EnemyHealth : MonoBehaviour
 
         switch (x)
         {
+            // One Coin
             case < oneChance:
                 value = 1;
                 break;
+            // Two Coins
             case < oneChance + twoChance:
                 value = 2;
                 break;
+            // Three Coins
             case < oneChance + twoChance + threeChance:
                 value = 3;
                 break;
         }
 
+        // Spawn i amount of coins
         for (int i = 1; i <= value; i++)
         {
             Transform coin = Instantiate(_coinRef, transform.position, quaternion.identity);
@@ -69,7 +74,8 @@ public class EnemyHealth : MonoBehaviour
             Death();
         }
     }
-
+    
+    // Shows enemy was hit
     private IEnumerator FlashRed()
     {
         _sr.color = Color.red;

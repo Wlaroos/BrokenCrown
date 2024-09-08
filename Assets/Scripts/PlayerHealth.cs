@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private float _currentHealth;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+    
     private bool _isInvincible = false;
     
     private void Awake()
@@ -22,28 +23,29 @@ public class PlayerHealth : MonoBehaviour
     
     public void TakeDamage(Vector2 force,int damage)
     {
-        // Knockback
-        GetComponent<PlayerMovement>().Knockback(force, _stunTime);
-        
-        // Subtract Health
         if (!_isInvincible)
         {
+            // Knockback
+            GetComponent<PlayerMovement>().Knockback(force, _stunTime);
+            
+            // Subtract Health
             _currentHealth -= damage;
+            
+            // Check for death, if not, add iFrames
+            if (_currentHealth <= 0)
+            {
+                Death();
+            }
+            else
+            {
+                StopAllCoroutines();
+                StartCoroutine(IFrames(_iFrameDuration));
+            }
         }
 
         //int random = UnityEngine.Random.Range(0, 4);
         //AudioHelper.PlayClip2D(enemyHitSFX[random], 1);
         //healthBar.localScale = new Vector3((((float)_currentHealth / (float)_maxHealth) * 0.315f), healthBar.localScale.y, healthBar.localScale.z);
-
-        if (_currentHealth <= 0)
-        {
-            Death();
-        }
-        else
-        {
-            StopAllCoroutines();
-            StartCoroutine(IFrames(_iFrameDuration));
-        }
     }
     
     private IEnumerator IFrames(float duration)
