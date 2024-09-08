@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Coin : MonoBehaviour
 {
     [SerializeField] private List<Sprite> _coinSprite = new List<Sprite>();
+    [SerializeField] private Transform _coinPopup;
     private float _amount;
     
     private Rigidbody2D _rb;
@@ -28,6 +30,11 @@ public class Coin : MonoBehaviour
         if (other.GetComponent<PlayerStats>() != null)
         {
             other.GetComponent<PlayerStats>().AddMoney(_amount);
+
+            var position = other.transform.position;
+            Transform scorePop = Instantiate(_coinPopup, new Vector3(position.x, position.y + 1.33f, position.z), Quaternion.identity);
+            scorePop.GetComponent<TMP_Text>().text = _amount.ToString();
+            
             Remove();
         }
     }

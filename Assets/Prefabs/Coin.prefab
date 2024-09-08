@@ -151,3 +151,4 @@ MonoBehaviour:
   - {fileID: 73803620, guid: 50a56aad0b8465f409e697edbf91ba95, type: 3}
   - {fileID: -853492071, guid: 50a56aad0b8465f409e697edbf91ba95, type: 3}
   - {fileID: 1469571795, guid: 50a56aad0b8465f409e697edbf91ba95, type: 3}
+  _coinPopup: {fileID: 8392504496944969628, guid: 3183dbe6258db6f4aaed530f39953a5d, type: 3}
