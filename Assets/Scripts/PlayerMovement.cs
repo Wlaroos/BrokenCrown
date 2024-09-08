@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed = 2f;
+    [SerializeField] private float _movementSpeed = 12f;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private BoxCollider2D _bc;

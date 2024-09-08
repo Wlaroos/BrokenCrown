@@ -17,7 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     private Vector3 _mousePos;
 
     [SerializeField] private bool _isAuto;
-    [SerializeField] private float _fireDelay;
+    [SerializeField] private float _fireRate;
     private float _startFireTime;
 
     private bool _gunEndPoint = true;
@@ -67,7 +67,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (_isAuto)
         {
-            if (Input.GetMouseButton(0) && Time.time > _startFireTime + _fireDelay)
+            if (Input.GetMouseButton(0) && Time.time > _startFireTime + (1 / _fireRate))
             {
                 //CameraShake.Instance.CamShake();
                 Shoot();
@@ -75,7 +75,7 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(0) && Time.time > _startFireTime + _fireDelay)
+            if (Input.GetMouseButtonDown(0) && Time.time > _startFireTime + (1 / _fireRate))
             {
                 //CameraShake.Instance.CamShake();
                 Shoot();

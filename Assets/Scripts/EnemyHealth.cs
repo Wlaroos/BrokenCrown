@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 3;
+    [SerializeField] private Transform _coinRef;
+    
     private float _currentHealth;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
@@ -27,6 +32,33 @@ public class EnemyHealth : MonoBehaviour
         
         // Subtract Health
         _currentHealth -= damage;
+
+        const int oneChance = 70;
+        const int twoChance = 20;
+        const int threeChance = 10;
+        
+        int value = 0;
+        
+        float x = Random.Range(0, oneChance + twoChance + threeChance);
+
+        switch (x)
+        {
+            case < oneChance:
+                value = 1;
+                break;
+            case < oneChance + twoChance:
+                value = 2;
+                break;
+            case < oneChance + twoChance + threeChance:
+                value = 3;
+                break;
+        }
+
+        for (int i = 1; i <= value; i++)
+        {
+            Transform coin = Instantiate(_coinRef, transform.position, quaternion.identity);
+            coin.GetComponent<Coin>().Knockback();
+        }
         
         //int random = UnityEngine.Random.Range(0, 4);
         //AudioHelper.PlayClip2D(enemyHitSFX[random], 1);
