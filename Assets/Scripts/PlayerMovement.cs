@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer _sr;
     private BoxCollider2D _bc;
     private Vector2 _movementDirection;
+
+    private bool _isKnockback = false;
     
     private Vector3 _mousePos;
 
@@ -31,7 +33,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Velocity in direction
-        _rb.velocity = _movementDirection * _movementSpeed;
+        if (!_isKnockback)
+        {
+            _rb.velocity = _movementDirection * _movementSpeed;
+        }
     }
     
     private void Aim()
@@ -53,5 +58,20 @@ public class PlayerMovement : MonoBehaviour
         {
             _sr.flipX = false;
         }
+    }
+
+    public void Knockback(Vector2 force, float duration)
+    {
+        StartCoroutine(KnockbackStart(force, duration));
+    }
+    
+    private IEnumerator KnockbackStart(Vector2 force, float duration)
+    {
+        _isKnockback = true;
+        _rb.AddForce(force * 10, ForceMode2D.Impulse);
+        _sr.color = Color.red;
+        yield return new WaitForSeconds(duration);
+        _sr.color = Color.magenta;
+        _isKnockback = false;
     }
 }
