@@ -15,11 +15,6 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Transform _shootTransform2;
 
     private Vector3 _mousePos;
-    
-    [SerializeField] private float _shotSpeed = 20f;
-    [SerializeField] private int _damage = 1;
-    [SerializeField] private float _knockback = 25f;
-    [SerializeField] private float _size = 0.5f;
 
     [SerializeField] private bool _isAuto;
     [SerializeField] private float _fireDelay;
@@ -52,12 +47,13 @@ public class PlayerWeapon : MonoBehaviour
         Vector3 aimDir = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle - 90);
-
+        
+        // Flip
         /*
-         Vector3 aimLocalScale = Vector3.one;
+        Vector3 aimLocalScale = Vector3.one;
         if (angle > 90 || angle < -90)
         {
-            aimLocalScale.x = 1f;
+            aimLocalScale.x = -1f;
         }
         else
         {
@@ -117,7 +113,7 @@ public class PlayerWeapon : MonoBehaviour
         Vector3 shootDir = (aimPosition - transform.position).normalized;
         
         // Create and setup the bullet
-        bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, _shotSpeed, _damage, _knockback, _size);
+        bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, _gunEndPoint);
         
         // Boolean for alternating firing position
         _gunEndPoint = !_gunEndPoint;
