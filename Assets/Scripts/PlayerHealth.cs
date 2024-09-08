@@ -41,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
+            StopAllCoroutines();
             StartCoroutine(IFrames(_iFrameDuration));
         }
     }
@@ -59,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
         //Instantiate(_ps, transform.position, Quaternion.identity);
         //int random = UnityEngine.Random.Range(0, 3);
         //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
+        
         _sr.color = Color.white;
         Debug.Log("Dead");
         //Destroy(gameObject);

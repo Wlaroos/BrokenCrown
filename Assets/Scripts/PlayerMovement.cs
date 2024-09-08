@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Knockback(Vector2 force, float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(KnockbackStart(force, duration));
     }
     

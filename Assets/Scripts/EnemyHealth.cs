@@ -7,11 +7,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float _maxHealth = 3;
     private float _currentHealth;
     private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
     private readonly float _knockbackMult = 1.0f;
     
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
         _currentHealth = _maxHealth;
     }
     
@@ -19,6 +21,9 @@ public class EnemyHealth : MonoBehaviour
     {
         // Knockback
         _rb.AddForce(force * _knockbackMult, ForceMode2D.Impulse);
+
+        StopCoroutine(FlashRed());
+        StartCoroutine(FlashRed());
         
         // Subtract Health
         _currentHealth -= damage;
@@ -31,6 +36,13 @@ public class EnemyHealth : MonoBehaviour
         {
             Death();
         }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        _sr.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        _sr.color = Color.white;
     }
 
     private void Death()
