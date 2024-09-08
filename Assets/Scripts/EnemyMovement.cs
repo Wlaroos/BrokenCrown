@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     
     private BoxCollider2D _bc;
     private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
     
     private const float ForcePower = 10f;
     
@@ -19,8 +20,9 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         _playerRef = GameObject.Find("Player").transform;
-        _rb = GetComponent<Rigidbody2D>();
         _bc = GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +37,9 @@ public class EnemyMovement : MonoBehaviour
     private void Update() 
     {
         var directionTowardsTarget = (_playerRef.position - this.transform.position).normalized;
+
+        _sr.flipX = directionTowardsTarget.x < 0;
+        
         MoveTo(directionTowardsTarget);
     }
     
