@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _movementSpeed = 12f;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
-    private BoxCollider2D _bc;
+    private Animator _anim;
     private Vector2 _movementDirection;
 
     private bool _isKnockback = false;
@@ -17,16 +17,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        _sr = GetComponent<SpriteRenderer>();
+        _sr = GetComponentInChildren<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
-        _bc = GetComponent<BoxCollider2D>();
+        _anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
         // Movement
         _movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
+        
         Aim();
     }
 
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = _movementDirection * _movementSpeed;
         }
+        
+        _anim.SetBool("isMoving", _movementDirection != Vector2.zero);
     }
     
     private void Aim()

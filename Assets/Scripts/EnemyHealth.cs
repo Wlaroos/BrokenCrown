@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     private float _currentDownHealth;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+    private Animator _anim;
     private readonly float _knockbackMult = 1.0f;
 
     private bool _isDowned = false;
@@ -24,9 +25,11 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>();
+        _sr = GetComponentInChildren<SpriteRenderer>();
+        _anim = GetComponentInChildren<Animator>();
         _currentHealth = _maxHealth;
         _currentDownHealth = _maxDownedHealth;
+        _anim.SetBool("isMoving", true);
     }
     
     public void TakeDamage(Vector2 force,int damage)
@@ -112,6 +115,7 @@ public class EnemyHealth : MonoBehaviour
         _isDowned = true;
         _sr.color = Color.gray;
         transform.rotation = Quaternion.Euler(0,0,90);
+        _anim.SetBool("isMoving", false);
     }
     
     private void Death()

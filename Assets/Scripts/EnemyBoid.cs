@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyBoid : MonoBehaviour
 {
     [SerializeField] private Transform _playerRef;
     [SerializeField] private float _speed = 2f;
@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour
     private EnemyHealth _eh;
     
     private const float ForcePower = 10f;
-    
     private Vector2 direction;
     
     private void Awake()
@@ -39,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
     // Works if enemy is already inside the hitbox
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerHealth>() != null && !_eh.IsDowned)
+        if (other.GetComponent<PlayerHealth>() != null)
         {
             var directionTowardsTarget = (_playerRef.position - this.transform.position).normalized;
             other.GetComponent<PlayerHealth>().TakeDamage(directionTowardsTarget,1);
@@ -48,20 +47,17 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update() 
     {
-        if (!_eh.IsDowned)
-        {
-            // Make enemy look at player
-            var directionTowardsTarget = (_playerRef.position - this.transform.position).normalized;
-            _sr.flipX = directionTowardsTarget.x < 0;
-
-            // Sets direction of the enemy
-            MoveTo(directionTowardsTarget);
-        }
+        // Make enemy look at player
+        Vector2 directionTowardsTarget = (_playerRef.position - transform.position).normalized;
+        _sr.flipX = directionTowardsTarget.x < 0;
+        
+        // Sets direction of the enemy
+        MoveTo(directionTowardsTarget);
     }
     
     private void FixedUpdate() 
     {
-        if (!_eh.IsDowned)
+        if (_eh.IsDowned == false)
         {
             // Movement
             var desiredVelocity = direction * _speed;
@@ -76,4 +72,12 @@ public class EnemyMovement : MonoBehaviour
     {
         this.direction = direction;
     }
+
+    
+    private void Stop() 
+    {
+        MoveTo(Vector2.zero);
+    }
+    
+    
 }

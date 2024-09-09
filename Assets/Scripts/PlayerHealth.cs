@@ -9,15 +9,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float _iFrameDuration = 1f;
     
     private float _currentHealth;
-    private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     
     private bool _isInvincible = false;
     
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>();
+        _sr = GetComponentInChildren<SpriteRenderer>();
         _currentHealth = _maxHealth;
     }
     
