@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private BoxCollider2D _bc;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+    private EnemyHealth _eh;
     
     private const float ForcePower = 10f;
     
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         _bc = GetComponent<BoxCollider2D>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
+        _eh = GetComponent<EnemyHealth>();
     }
 
     /*
@@ -58,11 +60,14 @@ public class EnemyMovement : MonoBehaviour
     
     private void FixedUpdate() 
     {
-        // Movement
-        var desiredVelocity = direction * _speed;
-        var deltaVelocity = desiredVelocity - _rb.velocity;
-        Vector3 moveForce = deltaVelocity * (_force * ForcePower * Time.fixedDeltaTime);
-        _rb.AddForce(moveForce);
+        if (_eh.IsDowned == false)
+        {
+            // Movement
+            var desiredVelocity = direction * _speed;
+            var deltaVelocity = desiredVelocity - _rb.velocity;
+            Vector3 moveForce = deltaVelocity * (_force * ForcePower * Time.fixedDeltaTime);
+            _rb.AddForce(moveForce);
+        }
     }
     
     // Sets direction of the enemy
