@@ -117,8 +117,6 @@ public class EnemyHealth : MonoBehaviour
         _sr.color = Color.gray;
         transform.rotation = Quaternion.Euler(0,0,90);
         _anim.SetBool("isMoving", false);
-        
-        transform.GetChild(0).GetComponent<CapsuleCollider2D>().enabled = false;
     }
     
     private void Death()

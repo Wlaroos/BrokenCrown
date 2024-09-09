@@ -134,8 +134,7 @@ GameObject:
   - component: {fileID: 186987309}
   - component: {fileID: 186987311}
   - component: {fileID: 186987310}
-  - component: {fileID: 186987312}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,22 +228,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &186987312
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186987308}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.100000024}
-  m_Size: {x: 0.85, y: 1.6}
-  m_Direction: 0
 --- !u!1 &188619369
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +352,7 @@ GameObject:
   - component: {fileID: 291224480}
   - component: {fileID: 291224482}
   - component: {fileID: 291224481}
-  - component: {fileID: 291224483}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,22 +446,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &291224483
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291224479}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.100000024}
-  m_Size: {x: 0.85, y: 1.6}
-  m_Direction: 0
 --- !u!1 &378945740
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,8 +2156,7 @@ GameObject:
   - component: {fileID: 1723920813}
   - component: {fileID: 1723920815}
   - component: {fileID: 1723920814}
-  - component: {fileID: 1723920816}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2285,19 +2250,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1723920816
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723920812}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.100000024}
-  m_Size: {x: 0.85, y: 1.6}
-  m_Direction: 0
