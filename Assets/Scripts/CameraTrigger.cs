@@ -4,44 +4,51 @@ using UnityEngine;
 
 public class CameraTrigger : MonoBehaviour
 {
-    [SerializeField] private Transform _camPosLeft;
-    [SerializeField] private Transform _camPosRight;
-    [SerializeField] private Transform _spawnLeft;
-    [SerializeField] private Transform _spawnRight;
+    [SerializeField] private Transform _camPos01;
+    [SerializeField] private Transform _camPos02;
+    [SerializeField] private Transform _spawnPos01;
+    [SerializeField] private Transform _spawnPos02;
 
     [SerializeField] private SpriteRenderer _wallToHide;
 
-    private bool _left = true;
-    private bool _once = false;
+    private bool _isFirstPosition = true;
+    private bool _doOnce = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<PlayerMovement>() != null && !_once)
+        if(collision.GetComponent<PlayerMovement>() != null && !_doOnce)
         {
+            // Just in case, stops all camera movement in the coroutine
             StopAllCoroutines();
-            if(_left)
+
+            // If player is on the left, move them and the camera to the right
+            if(_isFirstPosition)
             {
-                Debug.Log("Left");
-                collision.transform.position = _spawnRight.position;
-                StartCoroutine(CamSlide(.2f, _camPosRight.position));
+                collision.transform.position = _spawnPos02.position;
+                StartCoroutine(CamSlide(.2f, _camPos02.position));
             }
+            // Vice Versa
             else
             {
-                Debug.Log("Right");
-                collision.transform.position = _spawnLeft.position;
-                StartCoroutine(CamSlide(.2f, _camPosLeft.position));
+                collision.transform.position = _spawnPos01.position;
+                StartCoroutine(CamSlide(.2f, _camPos01.position));
             }
-            _once = true;
-            _left = !_left;
+
+            // Changes bools so that it swaps between the two positions and the coroutine can't be activated a second time when it's already active 
+            _doOnce = true;
+            _isFirstPosition = !_isFirstPosition;
         }
     }
 
+    // Coroutine to move the camera from position 01 to 02
     private IEnumerator CamSlide(float slideTime, Vector3 newCamPos)
     {
+        // Setup (_wallToHide is to make the transition look smoother)
         float timeCount = 0;
         Vector3 camPosition = Camera.main.transform.position;
         _wallToHide.enabled = false;
 
+        // Lerping camera
         while(timeCount < slideTime)
         {
             Camera.main.transform.position = Vector3.Slerp(camPosition, newCamPos, timeCount / slideTime);
@@ -50,8 +57,9 @@ public class CameraTrigger : MonoBehaviour
         }
         Camera.main.transform.position = newCamPos;
 
+        // Coroutine is over, allow it to be activated again (doOnce)
         _wallToHide.enabled = true;
-        _once = false;
+        _doOnce = false;
     }
 
 }
