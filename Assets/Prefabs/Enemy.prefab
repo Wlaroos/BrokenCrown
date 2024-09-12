@@ -203,6 +203,11 @@ MonoBehaviour:
   _maxHealth: 5
   _maxDownedHealth: 3
   _coinRef: {fileID: 7476736953607225740, guid: 093418a6e2f89fc4495dead9bbe63e2e, type: 3}
+  _sprites:
+  - {fileID: -53075409, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 223735042, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: -1255620918, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: -1264070499, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
 --- !u!114 &7094694800428560124
 MonoBehaviour:
   m_ObjectHideFlags: 0

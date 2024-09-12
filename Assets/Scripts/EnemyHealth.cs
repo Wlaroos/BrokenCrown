@@ -10,7 +10,10 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 3;
     [SerializeField] private float _maxDownedHealth = 3;
+
     [SerializeField] private Transform _coinRef;
+
+    [SerializeField] private Sprite[] _sprites;
     
     private float _currentHealth;
     private float _currentDownHealth;
@@ -30,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
         _currentHealth = _maxHealth;
         _currentDownHealth = _maxDownedHealth;
         _anim.SetBool("isMoving", true);
+        _sr.sprite = _sprites[Random.Range(0, _sprites.Length)];
     }
     
     public void TakeDamage(Vector2 force,int damage)
