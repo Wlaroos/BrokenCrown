@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,4 +13,10 @@ public class PlayerStats : MonoBehaviour
         _totalMoney += amount;
         //Debug.Log("Money: " + _totalMoney);
     }
+    
+	public void SubtractMoney(float amount)
+	{
+		_totalMoney += amount;
+		//Debug.Log("Money: " + _totalMoney);
+	}
 }
