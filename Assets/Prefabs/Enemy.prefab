@@ -208,6 +208,12 @@ MonoBehaviour:
   - {fileID: 223735042, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
   - {fileID: -1255620918, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
   - {fileID: -1264070499, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  _deathSprites:
+  - {fileID: -1825463632, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 1932758935, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 711185799, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 872131419, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  _deathPs: {fileID: 2680097549510597780, guid: 6898969426c0bf045952ea1503d2110d, type: 3}
 --- !u!114 &7094694800428560124
 MonoBehaviour:
   m_ObjectHideFlags: 0

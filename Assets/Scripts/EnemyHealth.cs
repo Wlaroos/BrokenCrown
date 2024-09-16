@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -14,12 +14,17 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Transform _coinRef;
 
     [SerializeField] private Sprite[] _sprites;
+	[SerializeField] private Sprite[] _deathSprites;
     
+	[SerializeField] private GameObject _deathPs;
+	
     private float _currentHealth;
     private float _currentDownHealth;
     private Rigidbody2D _rb;
+	private BoxCollider2D _bc;
     private SpriteRenderer _sr;
-    private Animator _anim;
+	private Animator _anim;
+	private int _spriteIndex;
     private readonly float _knockbackMult = 1.0f;
 
     private bool _isDowned = false;
@@ -28,12 +33,14 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+	    _bc = GetComponent<BoxCollider2D>();
         _sr = GetComponentInChildren<SpriteRenderer>();
         _anim = GetComponentInChildren<Animator>();
         _currentHealth = _maxHealth;
         _currentDownHealth = _maxDownedHealth;
-        _anim.SetBool("isMoving", true);
-        _sr.sprite = _sprites[Random.Range(0, _sprites.Length)];
+	    _anim.SetBool("isMoving", true);
+	    _spriteIndex = Random.Range(0, _sprites.Length);
+        _sr.sprite = _sprites[_spriteIndex];
     }
     
     public void TakeDamage(Vector2 force,int damage)
@@ -117,18 +124,33 @@ public class EnemyHealth : MonoBehaviour
     {
         StopAllCoroutines();
         
-        _isDowned = true;
-        _sr.color = Color.gray;
+	    _isDowned = true;
+	    _sr.color = Color.white;
+	    _sr.sprite = _deathSprites[_spriteIndex];
         transform.rotation = Quaternion.Euler(0,0,90);
         _anim.SetBool("isMoving", false);
     }
     
     private void Death()
     {
-        //Instantiate(_ps, transform.position, Quaternion.identity);
-        //int random = UnityEngine.Random.Range(0, 3);
-        //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
-        
-        Destroy(gameObject);
+	    Instantiate(_deathPs, transform.position, Quaternion.identity);
+	    _bc.enabled = false;
+	    StartCoroutine(DeathFade(0.5f));
+	    //int random = UnityEngine.Random.Range(0, 3);
+	    //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
     }
+    
+	private IEnumerator DeathFade(float fadeDuration)
+	{
+		float elapsedTime = 0f;
+        
+		while (elapsedTime < fadeDuration)
+		{
+			elapsedTime += Time.deltaTime;
+			_sr.color = Color.Lerp(Color.white, Color.clear, elapsedTime / fadeDuration);
+			yield return null;
+		}
+        
+		Destroy(gameObject);
+	}
 }

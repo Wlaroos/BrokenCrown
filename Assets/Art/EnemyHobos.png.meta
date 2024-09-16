@@ -120,11 +120,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 38
         width: 27
         height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,11 +141,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 29
-        y: 0
+        y: 38
         width: 25
         height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,11 +162,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 56
-        y: 0
+        y: 38
         width: 30
         height: 36
-      alignment: 9
-      pivot: {x: 0.48333332, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,11 +183,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 88
-        y: 0
+        y: 38
         width: 17
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5625}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,6 +195,90 @@ TextureImporter:
       bones: []
       spriteID: 341ab80deb2bb504390113633006d9cb
       internalID: -1264070499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyHobos_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c318134f2b188a4c9cbcf98417c2d4e
+      internalID: -1825463632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyHobos_5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c765c2b74a46be4da645a5f1aaeb0ad
+      internalID: 1932758935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyHobos_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a12482339ae0874d84b8d92dae14cc6
+      internalID: 711185799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyHobos_7
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6118915411c5f4882ac4acaba2780e
+      internalID: 872131419
       vertices: []
       indices: 
       edges: []
@@ -213,6 +297,10 @@ TextureImporter:
       EnemyHobos_1: 223735042
       EnemyHobos_3: -1264070499
       EnemyHobos_0: -53075409
+      EnemyHobos_5: 1932758935
+      EnemyHobos_4: -1825463632
+      EnemyHobos_6: 711185799
+      EnemyHobos_7: 872131419
       EnemyHobos_2: -1255620918
   spritePackingTag: 
   pSDRemoveMatte: 0

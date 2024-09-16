@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3228176163194682860}
   - component: {fileID: 473148385015426001}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Punch_PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
