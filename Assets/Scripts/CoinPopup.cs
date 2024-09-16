@@ -39,10 +39,10 @@ public class CoinPopup : MonoBehaviour
             yield return null;
         }
         
-        Remove();
+	    Destroy();
     }
 
-    private void Remove()
+	private void Destroy()
     {
         Destroy(gameObject);
     }

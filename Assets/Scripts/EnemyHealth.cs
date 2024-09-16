@@ -135,22 +135,14 @@ public class EnemyHealth : MonoBehaviour
     {
 	    Instantiate(_deathPs, transform.position, Quaternion.identity);
 	    _bc.enabled = false;
-	    StartCoroutine(DeathFade(0.5f));
+	    StartCoroutine(StaticCoroutines.Fade(0.5f, _sr, Destroy));
+	    
 	    //int random = UnityEngine.Random.Range(0, 3);
 	    //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
     }
     
-	private IEnumerator DeathFade(float fadeDuration)
+	private void Destroy()
 	{
-		float elapsedTime = 0f;
-        
-		while (elapsedTime < fadeDuration)
-		{
-			elapsedTime += Time.deltaTime;
-			_sr.color = Color.Lerp(Color.white, Color.clear, elapsedTime / fadeDuration);
-			yield return null;
-		}
-        
 		Destroy(gameObject);
 	}
 }

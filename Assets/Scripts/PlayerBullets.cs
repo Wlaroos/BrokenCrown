@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,14 +35,14 @@ public class PlayerBullets : MonoBehaviour
         if (Vector2.Distance(_startPos, transform.position) > _range && !_isFading)
         {
             _isFading = true;
-            StartCoroutine(Fade(0.1f));
+	        StartCoroutine(StaticCoroutines.Fade(0.1f, _sr, Destroy));
         }
     }
 
     private void Start()
     {
         // Will destroy the bullet after 8 seconds if it doesn't hit anything (Just in case)
-        StartCoroutine(DestroyBullet(8.0f));   
+	    Destroy(gameObject, 8f);
     }
 
     public void BulletSetup(Vector3 shootDir, float angle, bool fist)
@@ -79,59 +79,17 @@ public class PlayerBullets : MonoBehaviour
         }
     }
 
-    // Destroy bullet and create particles
-    private IEnumerator DestroyBullet(float delay)
-    {
-        
-        yield return new WaitForSeconds(delay);
-        
-        // Particles
-        if(_ps != null)
-        {
-            Instantiate(_ps,transform.position,Quaternion.identity);
-        }
-        
-        //CameraShaker.Instance.ShakeOnce(2f,2f,0.2f,0.2f);
-        //AudioManager.PlaySound("PoisonBullet");
-
-        Destroy(gameObject); 
-    }
-    
-    // Bullet's alpha fades over time
-    private IEnumerator Fade(float fadeDuration)
-    {
-        Color initialColor = _sr.color;
-        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
-        
-        float elapsedTime = 0f;
-        
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            _sr.color = Color.Lerp(initialColor, targetColor, elapsedTime / fadeDuration);
-            yield return null;
-        }
-        
-        Destroy();
-    }
-
     private void Destroy()
     {
-        StartCoroutine(DestroyBullet(0f));
+	    // Particles
+	    if(_ps != null)
+	    {
+		    Instantiate(_ps,transform.position,Quaternion.identity);
+	    }
+        
+	    //CameraShaker.Instance.ShakeOnce(2f,2f,0.2f,0.2f);
+	    //AudioManager.PlaySound("PoisonBullet");
+
+	    Destroy(gameObject); 
     }
-
-    /* 
-            if (collision.GetComponent<Enemy>() != null && gameObject.name == "NormalBullet(Clone)")
-            {
-                Instantiate(ps, transform.position, Quaternion.identity);
-                collision.GetComponent<Enemy>().TakeDamage(_rb.velocity.normalized * _knockback, _damage);
-                Destroy(gameObject);
-            }
-
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Walls"))
-            {
-                Instantiate(ps, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-    */
 }
