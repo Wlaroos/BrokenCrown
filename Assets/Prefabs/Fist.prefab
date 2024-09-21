@@ -150,7 +150,7 @@ MonoBehaviour:
   _spriteList:
   - {fileID: -871849384, guid: 28ac2c115b9137148bbb0124e5ac7cc1, type: 3}
   - {fileID: -1421596985, guid: 28ac2c115b9137148bbb0124e5ac7cc1, type: 3}
-  _shotSpeed: 40
+  _shotSpeed: 10
   _damage: 1
   _knockback: 25
   _size: 1.5

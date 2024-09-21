@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 3;
+    [SerializeField] private int _maxHealth = 3;
     [SerializeField] private float _stunTime = 0.25f;
     [SerializeField] private float _iFrameDuration = 1f;
     
-    private float _currentHealth;
+    private int _currentHealth;
     private SpriteRenderer _sr;
     
     private bool _isInvincible = false;
@@ -18,7 +19,12 @@ public class PlayerHealth : MonoBehaviour
         _sr = GetComponentInChildren<SpriteRenderer>();
         _currentHealth = _maxHealth;
     }
-    
+
+    private void Start()
+    {
+        PlayerStats.Instance.SetMaxHealth(_maxHealth, true);
+    }
+
     public void TakeDamage(Vector2 force,int damage)
     {
         if (!_isInvincible)
@@ -28,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
             
             // Subtract Health
             _currentHealth -= damage;
+            PlayerStats.Instance.ChangeHealth(-damage);
             
             // Check for death, if not, add iFrames
             if (_currentHealth <= 0)
@@ -64,5 +71,7 @@ public class PlayerHealth : MonoBehaviour
         _sr.color = Color.white;
         Debug.Log("Dead");
         //Destroy(gameObject);
+        
+        PlayerStats.Instance.PlayerDeathEvent.Invoke();
     }
 }

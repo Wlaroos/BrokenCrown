@@ -4,31 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class MoneyManager : MonoBehaviour
+public class MoneyUI : MonoBehaviour
 {
 	[SerializeField] private Sprite[] _fontSprites;
 	[SerializeField] private Image _digit01;
 	[SerializeField] private Image _digit02;
 	[SerializeField] private Image _digit03;
 	
-	private PlayerStats _playerStatsRef;
-	
 	private float _moneyAmount = 0.00f;
 	private string _moneyString = "0.00";
 	
 	private void Awake()
 	{
-		_playerStatsRef = GameObject.FindObjectOfType<PlayerStats>();
+		
 	}
 	
 	private void OnEnable()
 	{
-		_playerStatsRef.MoneyChangeEvent.AddListener(MoneyUpdate);
+		PlayerStats.Instance.MoneyChangeEvent.AddListener(MoneyUpdate);
 	}
 	
 	private void OnDisable()
 	{
-		_playerStatsRef.MoneyChangeEvent.RemoveListener(MoneyUpdate);
+		PlayerStats.Instance.MoneyChangeEvent.RemoveListener(MoneyUpdate);
 	}
 	
 	private void Update()
@@ -42,7 +40,7 @@ public class MoneyManager : MonoBehaviour
 	
 	private void MoneyUpdate()
 	{
-		_moneyAmount = _playerStatsRef.TotalMoney;
+		_moneyAmount =  PlayerStats.Instance.TotalMoney;
 		var result = (Mathf.Round(_moneyAmount * 100)) / 100.0;
 		_moneyString = result.ToString("F2");
 

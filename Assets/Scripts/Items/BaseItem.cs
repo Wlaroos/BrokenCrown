@@ -29,7 +29,7 @@ public class BaseItem : MonoBehaviour
 	
 	public void Purchase()
 	{
-		_playerStats.SubtractMoney(_price);
+		PlayerStats.Instance.ChangeMoney(-_price);
 		ItemEffects();
 	}
 	

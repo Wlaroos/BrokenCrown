@@ -32,7 +32,7 @@ public class Coin : MonoBehaviour
         if (other.name == "CoinTrigger")
         {
             // PlayerStats in is parent object as stated above
-            other.GetComponentInParent<PlayerStats>().AddMoney(_amount);
+            PlayerStats.Instance.ChangeMoney(_amount);
 
             // Create the coin popup and have is spawn slightly above the player
             var position = other.transform.position;
