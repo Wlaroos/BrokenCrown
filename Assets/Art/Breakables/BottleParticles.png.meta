@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 41380d86b625bbb4292cf96981ac6511
+guid: 209fbdf6c3fc6b649ae7f97162ef8f33
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 7482667652216324306
-    second: Square
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -36,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -50,12 +47,12 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
-  spriteBorder: {x: 4, y: 4, z: 4, w: 4}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -72,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -104,7 +101,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,32 +116,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square
+      name: BottleParticles_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d009a6b596c7d760800000000000000
-      internalID: 7482667652216324306
+      spriteID: 1edfbd040e6880a48ae678e0978e500d
+      internalID: -206167692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BottleParticles_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 372f39ff06213ef468cf8542695bba6a
+      internalID: -1997611649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BottleParticles_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3beca539aafa64bb89352581fc7afc
+      internalID: -1773438387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BottleParticles_3
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c3b8b51d6d5284c91cb1c7642d5d0b
+      internalID: 496825256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BottleParticles_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84255a331e8e31f46bb52e456f54fff4
+      internalID: 435157457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BottleParticles_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f48cd0bc7df53459d92ecccf5b524d
+      internalID: -823168864
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
-    physicsShape:
-    - - {x: -128, y: 128}
-      - {x: -128, y: -128}
-      - {x: 128, y: -128}
-      - {x: 128, y: 128}
+    physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
@@ -154,7 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Square: 7482667652216324306
+      BottleParticles_1: -1997611649
+      BottleParticles_3: 496825256
+      BottleParticles_4: 435157457
+      BottleParticles_5: -823168864
+      BottleParticles_2: -1773438387
+      BottleParticles_0: -206167692
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -838,7 +838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347406797}
   m_Layer: 6
-  m_Name: Items
+  m_Name: ItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1455,7 +1455,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: cef42558c0b4b3f48b220739167e8a86, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 41380d86b625bbb4292cf96981ac6511, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1903,7 +1903,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: cef42558c0b4b3f48b220739167e8a86, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 41380d86b625bbb4292cf96981ac6511, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2389,7 +2389,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1036116451
@@ -2553,7 +2553,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: cef42558c0b4b3f48b220739167e8a86, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 41380d86b625bbb4292cf96981ac6511, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2693,6 +2693,12 @@ MonoBehaviour:
   _maxHealth: 3
   _stunTime: 0.25
   _iFrameDuration: 1
+  HealthChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1166141502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2816,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1171782944
@@ -3123,12 +3129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyChangeEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  HealthChangeEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  PlayerDeathEvent:
     m_PersistentCalls:
       m_Calls: []
   StatChangeEvent:
@@ -3675,7 +3675,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: cef42558c0b4b3f48b220739167e8a86, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 41380d86b625bbb4292cf96981ac6511, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4284,7 +4284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: cef42558c0b4b3f48b220739167e8a86, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 41380d86b625bbb4292cf96981ac6511, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
