@@ -2,29 +2,33 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 3;
+    public int MaxHealth => _maxHealth;
+    
+    private int _currentHealth;
+    public int CurrentHealth => _currentHealth;
+    
     [SerializeField] private float _stunTime = 0.25f;
     [SerializeField] private float _iFrameDuration = 1f;
     
-    private int _currentHealth;
     private SpriteRenderer _sr;
     
     private bool _isInvincible = false;
+    
+    public UnityEvent HealthChangeEvent;
+    public UnityEvent PlayerDeathEvent;
     
     private void Awake()
     {
         _sr = GetComponentInChildren<SpriteRenderer>();
         _currentHealth = _maxHealth;
+        
     }
-
-    private void Start()
-    {
-        PlayerStats.Instance.SetMaxHealth(_maxHealth, true);
-    }
-
+    
     public void TakeDamage(Vector2 force,int damage)
     {
         if (!_isInvincible)
@@ -34,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
             
             // Subtract Health
             _currentHealth -= damage;
-            PlayerStats.Instance.ChangeHealth(-damage);
             
             // Check for death, if not, add iFrames
             if (_currentHealth <= 0)
@@ -46,6 +49,8 @@ public class PlayerHealth : MonoBehaviour
                 StopAllCoroutines();
                 StartCoroutine(IFrames(_iFrameDuration));
             }
+            
+            HealthChangeEvent.Invoke();
         }
 
         //int random = UnityEngine.Random.Range(0, 4);
@@ -61,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
         _isInvincible = false;
         
     }
-
+    
     private void Death()
     {
         //Instantiate(_ps, transform.position, Quaternion.identity);
@@ -72,6 +77,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Dead");
         //Destroy(gameObject);
         
-        PlayerStats.Instance.PlayerDeathEvent.Invoke();
+        PlayerDeathEvent.Invoke();
     }
 }

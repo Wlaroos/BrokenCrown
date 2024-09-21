@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-	[SerializeField] private PlayerStats _playerStats;
-	
 	private Transform _itemHolder;
 	
 	private Sprite _sprite;
@@ -15,8 +13,7 @@ public class BaseItem : MonoBehaviour
 
 	private void Awake()
 	{
-		_playerStats = GameObject.FindObjectOfType<PlayerStats>();
-		_itemHolder = _playerStats.transform.Find("Items");
+		_itemHolder = GameObject.Find("ItemHolder").transform;
 	}
 	
 	public void Init(Sprite sprite, string name, string description, float price)

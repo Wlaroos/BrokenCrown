@@ -6,24 +6,23 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance;
 
-    private float _totalMoney = 0f;
-    public float TotalMoney => _totalMoney;
+    // Total money the player has
+    public float TotalMoney { get; private set; } = 0f;
 
-    private int _maxHealth;
-    public int MaxHealth => _maxHealth;
+    // Max health of the player
+    public int MaxHealth { get; private set; } = 3;
+
+    // Current health of the player
+    public int CurrentHealth { get; private set; } = 3;
     
-    private int _currentHealth;
-    public int CurrentHealth => _currentHealth;
-    
-    private bool _isShopping = false;
-    public bool IsShopping => _isShopping;
+    // Tells the game if the player is on the shopping screen
+    public bool IsShopping { get; private set; } = false;
 
     private float _moveSpeedModifier = 0f;
     private float _fireDelayModifier = 0f;
 
+    // Events
     public UnityEvent MoneyChangeEvent;
-    public UnityEvent HealthChangeEvent;
-    public UnityEvent PlayerDeathEvent;
     public UnityEvent StatChangeEvent;
 
     private void Awake()
@@ -41,28 +40,9 @@ public class PlayerStats : MonoBehaviour
 
     public void ChangeMoney(float amount)
     {
-        _totalMoney += amount;
+        TotalMoney += amount;
         MoneyChangeEvent.Invoke();
         // Debug.Log("Money: " + _totalMoney);
-    }
-
-    public void ChangeHealth(int amount)
-    {
-        _currentHealth += amount;
-        HealthChangeEvent.Invoke();
-        // Debug.Log("Health: " + _currentHealth);
-    }
-    
-    public void SetMaxHealth(int amount, bool heal)
-    {
-        _maxHealth = amount;
-        
-        if (heal)
-        {
-            _currentHealth = _maxHealth;
-        }
-        
-        HealthChangeEvent.Invoke();
     }
     
     public void ChangeMoveSpeed(float amount)
@@ -70,14 +50,11 @@ public class PlayerStats : MonoBehaviour
         _moveSpeedModifier += amount;
         StatChangeEvent.Invoke();
     }
+    
     public void ChangeFireDelay(float amount)
     {
         _fireDelayModifier += amount;
         StatChangeEvent.Invoke();
     }
     
-    public void PlayerDeath()
-    {
-        PlayerDeathEvent.Invoke();
-    }
 }
