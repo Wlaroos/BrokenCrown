@@ -41,6 +41,8 @@ public class MoneyUI : MonoBehaviour
 	private void MoneyUpdate()
 	{
 		_moneyAmount =  PlayerStats.Instance.TotalMoney;
+		
+		// Forces the money amount to have only two decimal places
 		var result = (Mathf.Round(_moneyAmount * 100)) / 100.0;
 		_moneyString = result.ToString("F2");
 

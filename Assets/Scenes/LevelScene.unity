@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 104751619}
   - component: {fileID: 104751618}
   - component: {fileID: 104751617}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BorderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: -727013601, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -784,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094694800428560123, guid: f1024720f6b787548827a77fe9e59887, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7094694800428560123, guid: f1024720f6b787548827a77fe9e59887, type: 3}
       propertyPath: m_LocalPosition.x
@@ -962,7 +962,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: -1726440391, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1140,7 +1140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 663816374}
   - component: {fileID: 663816373}
   - component: {fileID: 663816372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall (Middle)
   m_TagString: BulletBounds
   m_Icon: {fileID: 0}
@@ -1553,7 +1553,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: -1195334845, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1575,7 +1575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669114946}
   - component: {fileID: 669114945}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackgroundSliver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 674586562}
   - component: {fileID: 674586561}
   - component: {fileID: 674586560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BorderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 783502076}
   - component: {fileID: 783502075}
   - component: {fileID: 783502074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall (Bottom)
   m_TagString: BulletBounds
   m_Icon: {fileID: 0}
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   _shootTransform1: {fileID: 1019150120}
   _shootTransform2: {fileID: 1166677682}
   _isAuto: 1
-  _fireRate: 2.5
+  _fireRate: 5
 --- !u!1 &849536843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2052,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: -1200205154, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2150,7 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889366731}
   - component: {fileID: 889366730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackgroundLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2296,7 +2296,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: -1307045228, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2479,7 +2479,7 @@ GameObject:
   - component: {fileID: 1129395038}
   - component: {fileID: 1129395037}
   - component: {fileID: 1129395036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall (Left)
   m_TagString: BulletBounds
   m_Icon: {fileID: 0}
@@ -2676,7 +2676,7 @@ Transform:
   - {fileID: 482754139}
   - {fileID: 347406797}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1132951265
 MonoBehaviour:
@@ -2702,7 +2702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1166141503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Backgrounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2727,7 +2727,7 @@ Transform:
   - {fileID: 104751620}
   - {fileID: 674586559}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166677681
 GameObject:
@@ -2850,7 +2850,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2934,7 +2934,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2979,7 +2979,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302933147
 GameObject:
@@ -3037,7 +3037,7 @@ Transform:
   - {fileID: 296220276}
   - {fileID: 1894425746}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1302933150
 BoxCollider2D:
@@ -3312,7 +3312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1336640029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3337,7 +3337,7 @@ Transform:
   - {fileID: 663816374}
   - {fileID: 1839743257}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356027106
 GameObject:
@@ -3449,7 +3449,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3545,7 +3545,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: -12035168, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3601,7 +3601,7 @@ GameObject:
   - component: {fileID: 1457079918}
   - component: {fileID: 1457079917}
   - component: {fileID: 1457079916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall (Top)
   m_TagString: BulletBounds
   m_Icon: {fileID: 0}
@@ -3711,7 +3711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1547087194}
   - component: {fileID: 1547087193}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackgroundRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3857,7 +3857,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 1755687875, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3913,7 +3913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094694800428560123, guid: f1024720f6b787548827a77fe9e59887, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7094694800428560123, guid: f1024720f6b787548827a77fe9e59887, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4065,7 +4065,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822629512
 GameObject:
@@ -4151,7 +4151,7 @@ RectTransform:
   - {fileID: 85647578}
   - {fileID: 1036116452}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4195,7 +4195,7 @@ GameObject:
   - component: {fileID: 1839743257}
   - component: {fileID: 1839743259}
   - component: {fileID: 1839743258}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall (Right)
   m_TagString: BulletBounds
   m_Icon: {fileID: 0}
@@ -4639,7 +4639,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: -770174205, guid: 4ce189bdd6b8ac94e88b1789397d5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
