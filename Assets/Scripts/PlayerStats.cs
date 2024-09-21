@@ -14,6 +14,9 @@ public class PlayerStats : MonoBehaviour
     
     private int _currentHealth;
     public int CurrentHealth => _currentHealth;
+    
+    private bool _isShopping = false;
+    public bool IsShopping => _isShopping;
 
     private float _moveSpeedModifier = 0f;
     private float _fireDelayModifier = 0f;

@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TutorialManager : MonoBehaviour
 {
+	public static TutorialManager Instance;
+	
 	[SerializeField] SpriteRenderer _tutorialWASD;
 	[SerializeField] SpriteRenderer _tutorialLMB;
 	[SerializeField] SpriteRenderer _tutorialE;
@@ -15,12 +18,24 @@ public class TutorialManager : MonoBehaviour
 	
 	private bool _wasdBool = false;
 	private bool _mouseBool = false;
-	private int _num = 0;
+	private bool _eBool = false;
+	
+	public UnityEvent CombatTutorialCompleteEvent;
+	public UnityEvent ShopTutorialCompleteEvent;
+	public UnityEvent TutorialCompleteEvent;
 
 	// Awake is called when the script instance is being loaded.
 	private void Awake()
 	{
-		
+		// Singleton pattern
+		if (Instance != null && Instance != this)
+		{
+			Destroy(this);
+		}
+		else
+		{
+			Instance = this;
+		}
 	}
 	
 	// Update is called every frame, if the MonoBehaviour is enabled.
@@ -51,7 +66,6 @@ public class TutorialManager : MonoBehaviour
 		else if(!_wasdBool)
 		{
 			_wasdBool = true;
-			_num++;
 			
 			StartCoroutine(StaticCoroutines.Fade(1f, _tutorialWASD));
 			StartCoroutine(StaticCoroutines.Fade(1f, _w));
@@ -62,10 +76,9 @@ public class TutorialManager : MonoBehaviour
 			Test();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.E) && _e.enabled == false) 
+		if (Input.GetKeyDown(KeyCode.E) && _e.enabled == false && PlayerStats.Instance.IsShopping) 
 		{
-			_e.enabled = true;
-			_num++;
+			_eBool = true;
 			
 			StartCoroutine(StaticCoroutines.Fade(1f, _tutorialE));
 			StartCoroutine(StaticCoroutines.Fade(1f, _e));
@@ -76,7 +89,6 @@ public class TutorialManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Mouse0) && !_mouseBool) 
 		{
 			_mouseBool = true;
-			_num++;
 			
 			StartCoroutine(StaticCoroutines.Fade(1f, _tutorialLMB));
 			
@@ -87,8 +99,17 @@ public class TutorialManager : MonoBehaviour
 	
 	private void Test()
 	{
-		if(_num >= 3)
+		if(_eBool)
 		{
+			ShopTutorialCompleteEvent.Invoke();
+		}
+		else if(_wasdBool && _mouseBool)
+		{
+			CombatTutorialCompleteEvent.Invoke();
+		}
+		else if(_wasdBool && _eBool && _mouseBool)
+		{
+			TutorialCompleteEvent.Invoke();
 			Destroy(gameObject, 1f);
 		}
 	}
