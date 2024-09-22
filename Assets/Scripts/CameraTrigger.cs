@@ -69,6 +69,8 @@ public class CameraTrigger : MonoBehaviour
             // Changes bools so that it swaps between the two positions and the coroutine can't be activated a second time when it's already active 
             _doOnce = true;
             _isFirstPosition = !_isFirstPosition;
+            
+            PlayerStats.Instance.ScreenChange(!_isFirstPosition);
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: afaf22fdad8152a4cb6078f8ed8f9abc
+guid: 7c7120870f8360f4ca1c8215a10bfe1d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxes_0
+      name: Dumpster_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 78
-        width: 22
-        height: 20
+        x: 0
+        y: 41
+        width: 54
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b631d39b33999e44a88349ac8a5fa851
-      internalID: -401530170
+      spriteID: 9f79c9d3a8e286c49ac12fac730133ae
+      internalID: -480752779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxes_1
+      name: Dumpster_1
       rect:
         serializedVersion: 2
-        x: 6
-        y: 56
-        width: 22
-        height: 20
+        x: 56
+        y: 0
+        width: 54
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,104 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aed5f1b38ecb0e4408c19acd52d26a23
-      internalID: 2049901631
+      spriteID: 0fd9480be6d46e341ab6883e93f90160
+      internalID: 764423810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxes_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 56
-        width: 42
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d96d4c2cb0ae0e245a68caa7ec9edd91
-      internalID: 927672557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_3
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 30
-        width: 30
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 850862ccfbbd61c40a87546b03b9b202
-      internalID: 32786767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_4
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 30
-        width: 50
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e893b9102aff8d48814306bdff3f6b3
-      internalID: 892167381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_5
+      name: Dumpster_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c43cdce4d5e12e94bbfb182bc3b01b12
-      internalID: -1804593150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_6
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 0
         width: 54
-        height: 28
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc182c0541132ea47a195769d2f29006
-      internalID: -983229842
+      spriteID: 62ec0b79ea9601243b443bf0aacd0c1e
+      internalID: -147003267
       vertices: []
       indices: 
       edges: []
@@ -273,13 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boxes_2: 927672557
-      Boxes_6: -983229842
-      Boxes_5: -1804593150
-      Boxes_1: 2049901631
-      Boxes_3: 32786767
-      Boxes_4: 892167381
-      Boxes_0: -401530170
+      Dumpster_2: -147003267
+      Dumpster_1: 764423810
+      Dumpster_0: -480752779
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

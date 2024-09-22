@@ -24,6 +24,7 @@ public class PlayerStats : MonoBehaviour
     // Events
     public UnityEvent MoneyChangeEvent;
     public UnityEvent StatChangeEvent;
+    public UnityEvent ScreenChangeEvent;
 
     private void Awake()
     {
@@ -43,6 +44,12 @@ public class PlayerStats : MonoBehaviour
         TotalMoney += amount;
         MoneyChangeEvent.Invoke();
         // Debug.Log("Money: " + _totalMoney);
+    }
+    
+    public void ScreenChange(bool isShopping)
+    {
+        IsShopping = isShopping;
+        ScreenChangeEvent.Invoke();
     }
     
     public void ChangeMoveSpeed(float amount)

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: afaf22fdad8152a4cb6078f8ed8f9abc
+guid: d5fbf891e1ee2384c992626885ebd5ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,148 +116,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxes_0
+      name: Textbox 9-Slice_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 78
-        width: 22
+        x: 0
+        y: 44
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8798d31407cd9e442a0dcf05312f0dc6
+      internalID: 1843200241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 44
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bbc4a3addadc34b9c6369174bceebc
+      internalID: -2099792242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 44
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb373cc58ff148c4d88a4e67af145abb
+      internalID: -1597113675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 44
+        width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 8, z: 8, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b631d39b33999e44a88349ac8a5fa851
-      internalID: -401530170
+      spriteID: 32f642c5505404c4ebf35932bcd80e09
+      internalID: -1103730849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxes_1
+      name: Textbox 9-Slice_4
       rect:
         serializedVersion: 2
-        x: 6
-        y: 56
-        width: 22
+        x: 0
+        y: 22
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a831c959bb38ef548aebfb8a66c77e6d
+      internalID: 29877519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_5
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 22
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481050ef7f05c054d91c0a43b6c3de7f
+      internalID: -1684272551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_6
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 22
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e491ef7277dc77841a55964937b6ee82
+      internalID: -234997553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_7
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 22
+        width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 8, z: 8, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aed5f1b38ecb0e4408c19acd52d26a23
-      internalID: 2049901631
+      spriteID: eb9232de7ba9a8d45be0bb3f67d86f69
+      internalID: 962269630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxes_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 56
-        width: 42
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d96d4c2cb0ae0e245a68caa7ec9edd91
-      internalID: 927672557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_3
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 30
-        width: 30
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 850862ccfbbd61c40a87546b03b9b202
-      internalID: 32786767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_4
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 30
-        width: 50
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e893b9102aff8d48814306bdff3f6b3
-      internalID: 892167381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boxes_5
+      name: Textbox 9-Slice_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
-        height: 28
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43cdce4d5e12e94bbfb182bc3b01b12
-      internalID: -1804593150
+      spriteID: 1e1985b7b60082f4c89f0e4b32c453fb
+      internalID: -1198521479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxes_6
+      name: Textbox 9-Slice_9
       rect:
         serializedVersion: 2
-        x: 36
+        x: 7
         y: 0
-        width: 54
-        height: 28
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc182c0541132ea47a195769d2f29006
-      internalID: -983229842
+      spriteID: 5528cef07cbb609439af0c0735d5ed54
+      internalID: 1240228346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_10
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0efc1502a17dc40a78d13071115e71
+      internalID: 473253438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textbox 9-Slice_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 8, z: 8, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002a831f0a1bc50459309e3aa8613bb7
+      internalID: -987440581
       vertices: []
       indices: 
       edges: []
@@ -273,13 +378,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boxes_2: 927672557
-      Boxes_6: -983229842
-      Boxes_5: -1804593150
-      Boxes_1: 2049901631
-      Boxes_3: 32786767
-      Boxes_4: 892167381
-      Boxes_0: -401530170
+      Textbox 9-Slice_6: -234997553
+      Textbox 9-Slice_11: -987440581
+      Textbox 9-Slice_5: -1684272551
+      Textbox 9-Slice_9: 1240228346
+      Textbox 9-Slice_4: 29877519
+      Textbox 9-Slice_1: -2099792242
+      Textbox 9-Slice_7: 962269630
+      Textbox 9-Slice_8: -1198521479
+      Textbox 9-Slice_10: 473253438
+      Textbox 9-Slice_0: 1843200241
+      Textbox 9-Slice_3: -1103730849
+      Textbox 9-Slice_2: -1597113675
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
