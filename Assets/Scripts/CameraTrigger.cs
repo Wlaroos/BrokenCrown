@@ -126,7 +126,7 @@ public class CameraTrigger : MonoBehaviour
 		_isOpen = isOpen;
 	}
     
-	private void OpenStore()
+	public void OpenStore()
 	{
 		StartCoroutine(SignSlide(0.5f, new Vector3(-1, 0, 0), true));
 	}

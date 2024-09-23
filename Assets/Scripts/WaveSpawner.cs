@@ -1,27 +1,48 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner Instance;
+    
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private int _numberOfWaves = 5;
     [SerializeField] private float _spawnInterval = 2.0f;
+    [SerializeField] private float _waveDelay = 2.0f;
+    
+    [SerializeField] CameraTrigger _cameraTrigger;
+    
+    private List<GameObject> _enemyList = new List<GameObject>();
     
     private int _currentWave = 0;
 
+    private void Awake()
+    {
+        // Singleton pattern
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
     private void Start()
     {
-        TutorialManager.Instance.CombatTutorialCompleteEvent.AddListener(SpawnWave);
-        PlayerStats.Instance.ScreenChangeEvent.AddListener(SpawnWave);
+        TutorialManager.Instance.CombatTutorialCompleteEvent.AddListener(StartWave);
+        PlayerStats.Instance.ScreenChangeEvent.AddListener(StartWave);
     }
 	
     private void OnDisable()
     {
-        TutorialManager.Instance.CombatTutorialCompleteEvent.RemoveListener(SpawnWave);
-        PlayerStats.Instance.ScreenChangeEvent.RemoveListener(SpawnWave);
+        TutorialManager.Instance.CombatTutorialCompleteEvent.RemoveListener(StartWave);
+        PlayerStats.Instance.ScreenChangeEvent.RemoveListener(StartWave);
     }
     
     private IEnumerator SpawnEnemies(int enemiesPerWave)
@@ -30,6 +51,29 @@ public class WaveSpawner : MonoBehaviour
         {
             SpawnEnemy();
             yield return new WaitForSeconds(Random.Range(0.5f, _spawnInterval));
+        }
+    }
+
+    private IEnumerator SpawnWave()
+    {
+        yield return new WaitForSeconds(_waveDelay);
+        
+        if (PlayerStats.Instance.IsShopping == false)
+        {
+            if (_currentWave < _numberOfWaves)
+            {
+                int enemiesPerWave = GetEnemiesPerWave(_currentWave);
+
+                _currentWave++;
+
+                Debug.Log($"Starting Wave {_currentWave} with {enemiesPerWave} enemies.");
+
+                StartCoroutine(SpawnEnemies(enemiesPerWave));
+            }
+            else
+            {
+                Debug.Log("All waves have been spawned!");
+            }
         }
     }
 
@@ -63,7 +107,9 @@ public class WaveSpawner : MonoBehaviour
                 break;
         }
 
-        Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+        GameObject enemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+        _enemyList.Add(enemy);
+        
     }
 
 
@@ -75,22 +121,20 @@ public class WaveSpawner : MonoBehaviour
         // Animation curve??
     }
 
-    private void SpawnWave()
+    private void StartWave()
     {
-        if (PlayerStats.Instance.IsShopping != false) return;
-        if (_currentWave < _numberOfWaves)
+        StartCoroutine(SpawnWave());
+    }
+    
+    public void EnemyDowned(GameObject enemy)
+    {
+        _enemyList.Remove(enemy);
+        
+        if (_enemyList.Count == 0)
         {
-            int enemiesPerWave = GetEnemiesPerWave(_currentWave);
+            Debug.Log("Wave complete! All enemies downed.");
             
-            _currentWave++;
-            
-            Debug.Log($"Starting Wave {_currentWave} with {enemiesPerWave} enemies.");
-            
-            StartCoroutine(SpawnEnemies(enemiesPerWave));
-        }
-        else
-        {
-            Debug.Log("All waves have been spawned!");
+            this.DelayAction(_cameraTrigger.OpenStore, 2.0f);
         }
     }
 }

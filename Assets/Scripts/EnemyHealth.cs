@@ -63,6 +63,7 @@ public class EnemyHealth : MonoBehaviour
             if (_currentHealth <= 0)
             {
                 Downed();
+                WaveSpawner.Instance.EnemyDowned(gameObject);
             }
         }
         else
