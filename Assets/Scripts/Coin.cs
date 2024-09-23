@@ -60,10 +60,10 @@ public class Coin : MonoBehaviour
     {
         
         // Weighted random chance for coin amounts
-        const int pennyChance = 100;
-        const int nickleChance = 20;
-        const int dimeChance = 10;
-        const int quarterChance = 5;
+        const int pennyChance = 85;
+        const int nickleChance = 10;
+        const int dimeChance = 4;
+        const int quarterChance = 1;
         
         float x = Random.Range(0, pennyChance + nickleChance + dimeChance + quarterChance);
 
