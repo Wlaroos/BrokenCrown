@@ -34,5 +34,18 @@ public class LevelManager : MonoBehaviour
         {
             Application.Quit();
         }
+        
+        // Reroll Shop
+        if (Input.GetKeyDown(KeyCode.P)) 
+        { 
+            Debug.Log("Rerolling Shop");
+            
+            ShopPedestal[] tet = FindObjectsOfType<ShopPedestal>();
+            
+            foreach (var VARIABLE in tet)
+            {
+                VARIABLE.Reroll();
+            }
+        }
     }
 }

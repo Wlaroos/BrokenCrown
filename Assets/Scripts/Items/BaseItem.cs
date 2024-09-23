@@ -1,47 +1,74 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-	private Transform _itemHolder;
+	protected Transform _itemHolder;
 	
-	private Sprite _sprite;
-	private string _name;
-	private string _description;
-	private float _price;
+	[SerializeField] protected string _name;
+	[SerializeField] protected string _description;
+	[SerializeField] protected float _price;
+	protected Sprite _sprite;
+	
+	protected bool _activated;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		_itemHolder = GameObject.Find("ItemHolder").transform;
+		_name = this.name;
+		_sprite = GetComponent<SpriteRenderer>().sprite;
 	}
 	
-	public void Init(Sprite sprite, string name, string description, float price)
-	{
-		_sprite = sprite;
-		_name = name;
-		_description = description;
-		_price = price;
-	}
-	
-	public void Purchase()
+	protected virtual void Purchase()
 	{
 		PlayerStats.Instance.ChangeMoney(-_price);
-		ItemEffects();
+		AttachToPlayer();
 	}
-	
-	public virtual void ItemEffects()
+
+	protected void Update()
+	{
+		if (_activated)
+		{
+			ItemEffects();
+		}
+	}
+
+	protected virtual void ItemEffects()
 	{
 		
 	}
 	
-	private void AttachToPlayer()
+	protected void AttachToPlayer()
 	{
 		transform.SetParent(_itemHolder);
+		_activated = true;
 	}
 	
-	private void Destroy()
+	protected void Destroy()
 	{
 		Destroy(gameObject);
+	}
+	
+	public string GetName()
+	{
+		return _name;
+	}
+	
+	public string GetDescription()
+	{
+		return _description;
+	}
+	
+	public Sprite GetSprite()
+	{
+		return _sprite;
+	}
+	
+	public float GetPrice()
+	{
+		return _price;
 	}
 }
