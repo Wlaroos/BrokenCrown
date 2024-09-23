@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
 public class CameraTrigger : MonoBehaviour
@@ -19,7 +20,6 @@ public class CameraTrigger : MonoBehaviour
 	private Light2D _signLight;
 	private BoxCollider2D _bc;
 	
-
     private bool _isFirstPosition = true;
     private bool _doOnce = false;
 	private bool _isOpen = false;

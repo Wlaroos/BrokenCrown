@@ -36,11 +36,23 @@ public class Coin : MonoBehaviour
 
             // Create the coin popup and have is spawn slightly above the player
             var position = other.transform.position;
-            Transform coinPop = Instantiate(_coinPopup, new Vector3(position.x, position.y + 1.33f, position.z), Quaternion.identity);
-            
-            // Round the amount to 2 decimal places
-            var result = (Mathf.Round(_amount * 100)) / 100.0;
-            coinPop.GetComponent<TMP_Text>().text = result.ToString("F2");
+
+            if (other.transform.position.y <= 0)
+            {
+                Transform coinPop = Instantiate(_coinPopup, new Vector3(position.x, position.y + 1.33f, position.z), Quaternion.identity);
+                
+                // Round the amount to 2 decimal places
+                var result = (Mathf.Round(_amount * 100)) / 100.0;
+                coinPop.GetComponent<TMP_Text>().text = result.ToString("F2");
+            }
+            else
+            {
+                Transform coinPop = Instantiate(_coinPopup, new Vector3(position.x, position.y - 2f, position.z), Quaternion.identity);
+                
+                // Round the amount to 2 decimal places
+                var result = (Mathf.Round(_amount * 100)) / 100.0;
+                coinPop.GetComponent<TMP_Text>().text = result.ToString("F2");
+            }
             
             Remove();
         }
