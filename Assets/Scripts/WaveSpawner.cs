@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -19,6 +20,8 @@ public class WaveSpawner : MonoBehaviour
     private List<GameObject> _enemyList = new List<GameObject>();
     
     private int _currentWave = 0;
+    
+    public UnityEvent FinalWaveCompleteEvent;
 
     private void Awake()
     {
@@ -69,10 +72,6 @@ public class WaveSpawner : MonoBehaviour
                 Debug.Log($"Starting Wave {_currentWave} with {enemiesPerWave} enemies.");
 
                 StartCoroutine(SpawnEnemies(enemiesPerWave));
-            }
-            else
-            {
-                Debug.Log("All waves have been spawned!");
             }
         }
     }
@@ -132,9 +131,16 @@ public class WaveSpawner : MonoBehaviour
         
         if (_enemyList.Count == 0)
         {
-            Debug.Log("Wave complete! All enemies downed.");
-            
-            this.DelayAction(_cameraTrigger.OpenStore, 2.0f);
+            if (_currentWave == _numberOfWaves)
+            {
+                Debug.Log("Final wave is Complete!");
+                FinalWaveCompleteEvent.Invoke();
+            }
+            else
+            {
+                Debug.Log("Wave complete! All enemies downed.");
+                this.DelayAction(_cameraTrigger.OpenStore, 2.0f);
+            }
         }
     }
 }
