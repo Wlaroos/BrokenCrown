@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private Transform _playerRef;
     [SerializeField] private float _speed = 50f;
     [SerializeField] private float _force = 5f;
     
+    private Transform _playerRef;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private EnemyHealth _eh;

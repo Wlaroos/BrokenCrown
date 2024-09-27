@@ -16,12 +16,12 @@ public class MoneyUI : MonoBehaviour
 	
 	private void Awake()
 	{
-		
+		PlayerStats.Instance.MoneyChangeEvent.AddListener(MoneyUpdate);
 	}
 	
 	private void OnEnable()
 	{
-		PlayerStats.Instance.MoneyChangeEvent.AddListener(MoneyUpdate);
+		
 	}
 	
 	private void OnDisable()

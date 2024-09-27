@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner Instance;
     
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject[] _enemyPrefabs;
     [SerializeField] private int _numberOfWaves = 5;
     [SerializeField] private float _spawnInterval = 2.0f;
     [SerializeField] private float _waveDelay = 2.0f;
@@ -106,7 +106,7 @@ public class WaveSpawner : MonoBehaviour
                 break;
         }
 
-        GameObject enemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+        GameObject enemy = Instantiate(_enemyPrefabs[Random.Range(0,2)], spawnPosition, Quaternion.identity);
         _enemyList.Add(enemy);
         
     }

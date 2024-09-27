@@ -44,9 +44,9 @@ public class ShopPedestal : MonoBehaviour
 
      private void Update()
      {
-         if(_itemTextbox.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
+         if (Input.GetKeyDown(KeyCode.E) && _itemTextbox.activeSelf)
          {
-             PurchaseItem();
+             CheckPurchase();
          }
      }
 
@@ -62,24 +62,24 @@ public class ShopPedestal : MonoBehaviour
              _itemPrice.text = _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
          }
      }
-
-     private void OnTriggerStay(Collider other)
-     {
-         if(Input.GetKeyDown(KeyCode.E) && other.GetComponent<PlayerMovement>() != null && PlayerStats.Instance.TotalMoney >= _item.GetComponent<BaseItem>().GetPrice())
-         {
-             PurchaseItem();
-         }
-         else if (Input.GetKeyDown(KeyCode.E) && other.GetComponent<PlayerMovement>() != null && PlayerStats.Instance.TotalMoney < _item.GetComponent<BaseItem>().GetPrice())
-         {
-             Debug.Log("Not enough money");
-         }
-     }
-
+     
      private void OnTriggerExit2D(Collider2D other)
      {
          if (other.GetComponent<PlayerMovement>() != null)
          {
              _itemTextbox.SetActive(false);
+         }
+     }
+     
+     private void CheckPurchase()
+     {
+         if (PlayerStats.Instance.TotalMoney >= _item.GetComponent<BaseItem>().GetPrice())
+         {
+             PurchaseItem();
+         }
+         else
+         {
+                Debug.Log("Not enough money");
          }
      }
      
