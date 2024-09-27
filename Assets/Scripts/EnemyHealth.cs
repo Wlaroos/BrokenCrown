@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     private float _currentHealth;
     private float _currentDownHealth;
     private Rigidbody2D _rb;
-	private BoxCollider2D _bc;
+	private CapsuleCollider2D _cc;
     private SpriteRenderer _sr;
 	private Animator _anim;
 	private int _spriteIndex;
@@ -33,7 +33,7 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-	    _bc = GetComponent<BoxCollider2D>();
+        _cc = GetComponent<CapsuleCollider2D>();
         _sr = GetComponentInChildren<SpriteRenderer>();
         _anim = GetComponentInChildren<Animator>();
         _currentHealth = _maxHealth;
@@ -135,7 +135,7 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
 	    Instantiate(_deathPs, transform.position, Quaternion.identity);
-	    _bc.enabled = false;
+        _cc.enabled = false;
 	    StartCoroutine(StaticCoroutines.Fade(0.5f, _sr, Destroy));
 	    
 	    //int random = UnityEngine.Random.Range(0, 3);

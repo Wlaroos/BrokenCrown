@@ -12,14 +12,14 @@ public class Coin : MonoBehaviour
     private float _amount;
     
     private Rigidbody2D _rb;
-    private BoxCollider2D _bc;
+    private CapsuleCollider2D _cc;
     private SpriteRenderer _sr;
     
     // Start is called before the first frame update
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _bc = GetComponent<BoxCollider2D>();
+        _cc = GetComponent<CapsuleCollider2D>();
         _sr = GetComponent<SpriteRenderer>();
         
         CoinSetup();

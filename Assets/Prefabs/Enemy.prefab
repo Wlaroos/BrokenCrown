@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7094694800082062429}
   - component: {fileID: 7094694800082062431}
   - component: {fileID: 7094694800082062430}
-  - component: {fileID: 4534253200557203474}
+  - component: {fileID: 7751531977445038725}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -106,8 +106,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &4534253200557203474
-BoxCollider2D:
+--- !u!70 &7751531977445038725
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,18 +120,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.85, y: 1.6}
-    newSize: {x: 0.85, y: 1.6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.65, y: 1.4}
-  m_EdgeRadius: 0
+  m_Direction: 0
 --- !u!1 &7094694800428560118
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7094694800428560123}
-  - component: {fileID: 7094694800428560121}
+  - component: {fileID: 3631885046890266184}
   - component: {fileID: 7094694800428560120}
   - component: {fileID: 7094694800428560119}
   - component: {fileID: 7094694800428560124}
@@ -168,8 +158,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7094694800428560121
-BoxCollider2D:
+--- !u!70 &3631885046890266184
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -182,18 +172,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5625}
-    oldSize: {x: 0.85, y: 1.6}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.85, y: 1.6}
-  m_EdgeRadius: 0
+  m_Direction: 0
 --- !u!50 &7094694800428560120
 Rigidbody2D:
   serializedVersion: 4

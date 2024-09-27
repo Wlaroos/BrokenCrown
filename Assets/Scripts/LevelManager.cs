@@ -47,5 +47,10 @@ public class LevelManager : MonoBehaviour
                 VARIABLE.Reroll();
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.O)) 
+        { 
+            PlayerStats.Instance.ChangeMoney(.05f);
+        }
     }
 }

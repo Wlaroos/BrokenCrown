@@ -11,6 +11,7 @@ public class CameraTrigger : MonoBehaviour
     [SerializeField] private Transform _spawnPos01;
 	[SerializeField] private Transform _spawnPos02;
 	[SerializeField] private Transform _openSign;
+	[SerializeField] private Transform _uiHolder;
 
 	[SerializeField] private SpriteRenderer _wallToHide;
     
@@ -57,12 +58,14 @@ public class CameraTrigger : MonoBehaviour
             {
                 collision.transform.position = _spawnPos02.position;
                 StartCoroutine(CamSlide(_camSlideTime, _camPos02.position));
+                (_uiHolder).position += new Vector3(21, 0, 0);
             }
             // Vice Versa
             else
             {
                 collision.transform.position = _spawnPos01.position;
 	            StartCoroutine(CamSlide(_camSlideTime, _camPos01.position));
+	            _uiHolder.position -= new Vector3(21, 0, 0);
 	            CloseStore();
             }
 

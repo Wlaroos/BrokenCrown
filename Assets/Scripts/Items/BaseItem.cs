@@ -6,25 +6,24 @@ using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-	protected Transform _itemHolder;
+	private Transform _itemHolder;
 	
 	[SerializeField] protected string _name;
 	[SerializeField] protected string _description;
 	[SerializeField] protected float _price;
-	protected Sprite _sprite;
-	
-	protected bool _activated;
+	private Sprite _sprite;
+
+	private bool _activated;
 
 	protected virtual void Awake()
 	{
-		_itemHolder = GameObject.Find("ItemHolder").transform;
+		_itemHolder = GameObject.FindWithTag("ItemHolder").transform;
 		_name = this.name;
 		_sprite = GetComponent<SpriteRenderer>().sprite;
 	}
 	
-	protected virtual void Purchase()
+	public virtual void Purchased()
 	{
-		PlayerStats.Instance.ChangeMoney(-_price);
 		AttachToPlayer();
 	}
 
@@ -40,10 +39,11 @@ public class BaseItem : MonoBehaviour
 	{
 		
 	}
-	
-	protected void AttachToPlayer()
+
+	private void AttachToPlayer()
 	{
 		transform.SetParent(_itemHolder);
+		GetComponent<SpriteRenderer>().enabled = false;
 		_activated = true;
 	}
 	

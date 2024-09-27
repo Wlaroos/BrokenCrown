@@ -38,7 +38,7 @@ public class CoinPopup : MonoBehaviour
         }
         
         // Fade out
-	    StartCoroutine(Fade(0.5f));
+	    StartCoroutine(Fade(.67f));
         
         // Move above player
 	    transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, -0.4f);

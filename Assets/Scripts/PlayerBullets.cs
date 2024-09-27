@@ -66,7 +66,7 @@ public class PlayerBullets : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         // If the bullet hits a wall
-        if(collision.tag == "BulletBounds")
+        if(collision.CompareTag("BulletBounds"))
         {
             Destroy();
         }

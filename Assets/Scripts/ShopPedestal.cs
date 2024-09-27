@@ -42,6 +42,14 @@ public class ShopPedestal : MonoBehaviour
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
      }
 
+     private void Update()
+     {
+         if(_itemTextbox.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
+         {
+             PurchaseItem();
+         }
+     }
+
      private void OnTriggerEnter2D(Collider2D other)
      {
          if(other.GetComponent<PlayerMovement>() != null)
@@ -54,13 +62,40 @@ public class ShopPedestal : MonoBehaviour
              _itemPrice.text = _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
          }
      }
-     
+
+     private void OnTriggerStay(Collider other)
+     {
+         if(Input.GetKeyDown(KeyCode.E) && other.GetComponent<PlayerMovement>() != null && PlayerStats.Instance.TotalMoney >= _item.GetComponent<BaseItem>().GetPrice())
+         {
+             PurchaseItem();
+         }
+         else if (Input.GetKeyDown(KeyCode.E) && other.GetComponent<PlayerMovement>() != null && PlayerStats.Instance.TotalMoney < _item.GetComponent<BaseItem>().GetPrice())
+         {
+             Debug.Log("Not enough money");
+         }
+     }
+
      private void OnTriggerExit2D(Collider2D other)
      {
          if (other.GetComponent<PlayerMovement>() != null)
          {
              _itemTextbox.SetActive(false);
          }
+     }
+     
+     private void PurchaseItem()
+     {
+         PlayerStats.Instance.ChangeMoney(-_item.GetComponent<BaseItem>().GetPrice());
+
+         GameObject item = Instantiate(_item, transform.position, Quaternion.identity);
+         
+         item.GetComponent<BaseItem>().Purchased();
+         
+         _itemTextbox.SetActive(false);
+
+         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
+
+         Debug.Log("Purchased " + _item.GetComponent<BaseItem>().GetName());
      }
 
      public void Reroll()
