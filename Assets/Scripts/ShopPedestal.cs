@@ -27,6 +27,9 @@ public class ShopPedestal : MonoBehaviour
 
      private TextPopup _textPopupRef;
      
+     private bool _isPurchased;
+     private bool _isOverlapping;
+     
      private void Awake()
      {
          _ps = transform.GetChild(1).GetComponent<ParticleSystem>();
@@ -59,7 +62,7 @@ public class ShopPedestal : MonoBehaviour
 
      private void Update()
      {
-         if (Input.GetKeyDown(KeyCode.E) && _itemTextbox.activeSelf)
+         if (Input.GetKeyDown(KeyCode.E) && _isOverlapping)
          {
              CheckPurchase();
          }
@@ -70,6 +73,7 @@ public class ShopPedestal : MonoBehaviour
          if(other.GetComponent<PlayerMovement>() != null)
          {
              _itemTextbox.SetActive(true);
+             _isOverlapping = true;
              _itemTextbox.transform.position = transform.position + new Vector3(0, -3f, 0);
 
              _itemName.text = "- " + _item.GetComponent<BaseItem>().GetName() + " -";
@@ -82,13 +86,14 @@ public class ShopPedestal : MonoBehaviour
      {
          if (other.GetComponent<PlayerMovement>() != null)
          {
+             _isOverlapping = false;
              _itemTextbox.SetActive(false);
          }
      }
      
      private void CheckPurchase()
      {
-         if (PlayerStats.Instance.TotalMoney >= _item.GetComponent<BaseItem>().GetPrice())
+         if (PlayerStats.Instance.TotalMoney >= _item.GetComponent<BaseItem>().GetPrice() && !_isPurchased)
          {
              PurchaseItem();
          }
@@ -104,6 +109,8 @@ public class ShopPedestal : MonoBehaviour
 
          GameObject item = Instantiate(_item, transform.position, Quaternion.identity);
          item.GetComponent<BaseItem>().Purchased();
+
+         _isPurchased = true;
          
          _bc.enabled = false;
          
@@ -121,15 +128,18 @@ public class ShopPedestal : MonoBehaviour
 
      public void Reroll()
      {
-         _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
-         _item = _itemList[_randomNum];
-         
-         _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
-         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
-         
-         if (_itemList.Count > 1)
+         if (!_isPurchased)
          {
-             //_itemList.Remove(_item);
+             _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
+             _item = _itemList[_randomNum];
+
+             _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
+             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
+
+             if (_itemList.Count > 1)
+             {
+                 _itemList.Remove(_item);
+             }
          }
      }
 }
