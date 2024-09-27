@@ -18,7 +18,7 @@ public class Destructible : MonoBehaviour
     {
         if (other.GetComponent<PlayerBullets>() != null && !_isDestroyed)
         {
-            other.GetComponent<PlayerBullets>().Destroy();
+            //other.GetComponent<PlayerBullets>().Destroy();
             Explode();
         }
     }

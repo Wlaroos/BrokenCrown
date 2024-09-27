@@ -11,6 +11,7 @@ public class Launchable : MonoBehaviour
     private ParticleSystem _particle;
     private Rigidbody2D _rb;
     
+    private bool _wasHit;
     private bool _isDestroyed;
 
     private void Awake()
@@ -21,12 +22,15 @@ public class Launchable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // If the object is a player bullet, destroy the bullet and apply knockback
         if (other.GetComponent<PlayerBullets>() != null && !_isDestroyed)
         {
             other.GetComponent<PlayerBullets>().Destroy();
             Knockback(other.transform.right);
         }
-        if (other.GetComponent<EnemyHealth>() != null && !_isDestroyed && _rb.velocity.magnitude > 3f)
+        
+        // If the object is moving fast enough, deal damage to the enemy
+        if (other.GetComponent<EnemyHealth>() != null && !_isDestroyed && _wasHit && other.GetComponent<EnemyHealth>().IsDowned == false && _rb.velocity.magnitude > 2f)
         {
             other.GetComponent<EnemyHealth>().TakeDamage(transform.right, _damage);
             Explode();
@@ -37,7 +41,18 @@ public class Launchable : MonoBehaviour
     {
         // Knockback
         _rb.AddForce(dir * _knockbackRecieved, ForceMode2D.Impulse);
+        
+        StopAllCoroutines();
+        StartCoroutine(Hitbox());
     }    
+    
+    private IEnumerator Hitbox()
+    {
+        _wasHit = true;
+        yield return new WaitForSeconds(1f);
+        _wasHit = false;
+    }
+    
     private void Explode()
     {
         _isDestroyed = true;
