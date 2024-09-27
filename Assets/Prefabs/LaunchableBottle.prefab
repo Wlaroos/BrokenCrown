@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2091165892150416985}
   - component: {fileID: 5541303301363725769}
   - component: {fileID: 4266001754664108464}
+  - component: {fileID: -8787940334455470529}
   m_Layer: 10
   m_Name: LaunchableBottle
   m_TagString: Destructibles
@@ -147,6 +148,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df23737a6c48d445a8846a4d1ba9e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _knockbackRecieved: 15
+  _damage: 1
+--- !u!114 &-8787940334455470529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091165892150416933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7387a3a27e77b3444a63978d4025e0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 1501969436, guid: 978994c32853e754197abb8e492f7ca4, type: 3}
+  - {fileID: -576097262, guid: 978994c32853e754197abb8e492f7ca4, type: 3}
+  - {fileID: -1635939819, guid: 978994c32853e754197abb8e492f7ca4, type: 3}
+  - {fileID: -885295542, guid: 978994c32853e754197abb8e492f7ca4, type: 3}
 --- !u!1001 &6982883561666271174
 PrefabInstance:
   m_ObjectHideFlags: 0

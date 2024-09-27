@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b7167d6840d5f4a4788ffdbd63cb321f
+guid: c318d57fbc4abc040bc9cc9a9894263d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab918c5323b93444782947818429ade8
-      internalID: 333955539
+      spriteID: d943bec55b01b88498906d43bdf49362
+      internalID: -617078902
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d27c038436c89544b3dc09a81a98b71
-      internalID: -2061094033
+      spriteID: d66a8e27dee230a4db4c4e996a42eadc
+      internalID: -766804685
       vertices: []
       indices: 
       edges: []
@@ -168,8 +168,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Trashbag_1: -2061094033
-      Trashbag_0: 333955539
+      Trashbag_1: -766804685
+      Trashbag_0: -617078902
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

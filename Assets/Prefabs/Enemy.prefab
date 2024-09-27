@@ -211,15 +211,17 @@ MonoBehaviour:
   _maxDownedHealth: 3
   _coinRef: {fileID: 7476736953607225740, guid: 093418a6e2f89fc4495dead9bbe63e2e, type: 3}
   _sprites:
-  - {fileID: -53075409, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
-  - {fileID: 223735042, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
-  - {fileID: -1255620918, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
-  - {fileID: -1264070499, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: -575550351, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 1735526558, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: -308689947, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 1384873586, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 1843213340, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
   _deathSprites:
-  - {fileID: -1825463632, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
-  - {fileID: 1932758935, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
-  - {fileID: 711185799, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
-  - {fileID: 872131419, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 1146709700, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 1789523244, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: 27110847, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: -878630509, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
+  - {fileID: -781457863, guid: a8341eda6cfa81a4697352d2bad70ec6, type: 3}
   _deathPs: {fileID: 2680097549510597780, guid: 6898969426c0bf045952ea1503d2110d, type: 3}
 --- !u!114 &7094694800428560124
 MonoBehaviour:

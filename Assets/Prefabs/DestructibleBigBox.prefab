@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2091165892150416985}
   - component: {fileID: 5137135222834498438}
   - component: {fileID: 2091165892150416934}
+  - component: {fileID: 8642652249452285101}
   m_Layer: 10
   m_Name: DestructibleBigBox
   m_TagString: Destructibles
@@ -147,6 +148,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae80e3667476e8c48b91fb7da45a8409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8642652249452285101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091165892150416933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7387a3a27e77b3444a63978d4025e0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 927672557, guid: afaf22fdad8152a4cb6078f8ed8f9abc, type: 3}
+  - {fileID: 892167381, guid: afaf22fdad8152a4cb6078f8ed8f9abc, type: 3}
 --- !u!1001 &1825804162095407433
 PrefabInstance:
   m_ObjectHideFlags: 0

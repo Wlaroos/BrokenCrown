@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c7120870f8360f4ca1c8215a10bfe1d
+guid: 3844ab8d47124d5458550aa60bbb7d3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f79c9d3a8e286c49ac12fac730133ae
-      internalID: -480752779
+      spriteID: 112f7b958540f5f47b84ea9b84fe5026
+      internalID: -1739393354
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fd9480be6d46e341ab6883e93f90160
-      internalID: 764423810
+      spriteID: ed0b7b4a7591c594188591511ab8eda9
+      internalID: 666137485
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62ec0b79ea9601243b443bf0aacd0c1e
-      internalID: -147003267
+      spriteID: ade043253f4019d449704a618103a0a7
+      internalID: -832364867
       vertices: []
       indices: 
       edges: []
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dumpster_2: -147003267
-      Dumpster_1: 764423810
-      Dumpster_0: -480752779
+      Dumpster_2: -832364867
+      Dumpster_1: 666137485
+      Dumpster_0: -1739393354
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
