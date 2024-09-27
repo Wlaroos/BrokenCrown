@@ -79,7 +79,7 @@ public class PlayerBullets : MonoBehaviour
         }
     }
 
-    private void Destroy()
+    public void Destroy()
     {
 	    // Particles
 	    if(_ps != null)
