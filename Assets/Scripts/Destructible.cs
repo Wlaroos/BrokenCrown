@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
-    private ParticleSystem _particle;
+    private ParticleSystem _ps;
     
     private bool _isDestroyed;
 
     private void Awake()
     {
-        _particle = transform.GetChild(0).GetComponent<ParticleSystem>();
+        _ps = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,9 +27,8 @@ public class Destructible : MonoBehaviour
     {
         _isDestroyed = true;
 
-        _particle.Play();
-        
-        foreach (Transform child in _particle.transform)
+        _ps.Play();
+        foreach (Transform child in _ps.transform)
         {
             child.GetComponent<ParticleSystem>().Play();
         }

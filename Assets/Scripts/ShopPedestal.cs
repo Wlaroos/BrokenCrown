@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class ShopPedestal : MonoBehaviour
 {
+    [SerializeField] private Sprite _openSprite;
+    
      private List<GameObject> _itemList = new List<GameObject>();
      private GameObject[] _itemArray;
      private GameObject _item;
 
+     // Item textbox
      private GameObject _itemTextbox;
      private TMP_Text _itemName;
      private TMP_Text _itemDescription;
@@ -17,9 +20,21 @@ public class ShopPedestal : MonoBehaviour
      private Sprite _itemSprite;
 
      private int _randomNum;
+
+     private ParticleSystem _ps;
+     private SpriteRenderer _sr;
+     private BoxCollider2D _bc;
+
+     private TextPopup _textPopupRef;
      
      private void Awake()
      {
+         _ps = transform.GetChild(1).GetComponent<ParticleSystem>();
+         _sr = GetComponent<SpriteRenderer>();
+         _bc = GetComponent<BoxCollider2D>();
+         
+         _textPopupRef = GameObject.Find("Text Popup").GetComponent<TextPopup>();
+         
          _itemTextbox = GameObject.Find("Item Textbox");
          
          _itemArray = Resources.LoadAll<GameObject>("Items");
@@ -79,7 +94,7 @@ public class ShopPedestal : MonoBehaviour
          }
          else
          {
-                Debug.Log("Not enough money");
+             _textPopupRef.StartFade();
          }
      }
      
@@ -88,11 +103,17 @@ public class ShopPedestal : MonoBehaviour
          PlayerStats.Instance.ChangeMoney(-_item.GetComponent<BaseItem>().GetPrice());
 
          GameObject item = Instantiate(_item, transform.position, Quaternion.identity);
-         
          item.GetComponent<BaseItem>().Purchased();
          
-         _itemTextbox.SetActive(false);
-
+         _bc.enabled = false;
+         
+         _ps.Play();
+         foreach (Transform child in _ps.transform)
+         {
+             child.GetComponent<ParticleSystem>().Play();
+         }
+         
+         _sr.sprite = _openSprite;
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
 
          Debug.Log("Purchased " + _item.GetComponent<BaseItem>().GetName());
