@@ -129,6 +129,7 @@ public class WaveSpawner : MonoBehaviour
     {
         _enemyList.Remove(enemy);
 
+        StopCoroutine(CheckWithDelay());
         StartCoroutine(CheckWithDelay());
     }
     

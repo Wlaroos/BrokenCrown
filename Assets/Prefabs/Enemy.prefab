@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798c53137833e53479149467b53995f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerRef: {fileID: 0}
   _speed: 50
   _force: 5
+  _warningPrefab: {fileID: 1903617352482025157, guid: 6ea6cf2e00ea1e345a8dc6595c8a095b, type: 3}
+  _startDelay: 0.5

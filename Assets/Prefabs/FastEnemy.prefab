@@ -237,3 +237,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 80
   _force: 8
+  _warningPrefab: {fileID: 1903617352482025157, guid: 6ea6cf2e00ea1e345a8dc6595c8a095b, type: 3}
+  _startDelay: 1
