@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Launchable : MonoBehaviour
+public class LaunchableReuse : MonoBehaviour
 {
     [SerializeField] private float _knockbackRecieved = 15f;
     [SerializeField] private int _damage = 1;
+    [SerializeField] private GameObject _particle;
     [SerializeField] private GameObject _createOnHit;
     [SerializeField] private int _createOnHitAmount = 1;
     
-    private ParticleSystem _particle;
     private Rigidbody2D _rb;
     
     private bool _wasHit;
@@ -19,11 +19,6 @@ public class Launchable : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        
-        if (transform.childCount > 0)
-        {
-            _particle = transform.GetChild(0).GetComponent<ParticleSystem>();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -61,16 +56,11 @@ public class Launchable : MonoBehaviour
     
     private void Explode()
     {
-        if (transform.childCount > 0)
+        ParticleSystem ps = Instantiate(_particle, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        ps.Play();
+        foreach (Transform child in ps.transform)
         {
-            _particle.Play();
-        
-            foreach (Transform child in _particle.transform)
-            {
-                child.GetComponent<ParticleSystem>().Play();
-            }
-            
-            transform.DetachChildren();
+            child.GetComponent<ParticleSystem>().Play();
         }
         
         if(_createOnHit != null)
