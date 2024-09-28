@@ -128,6 +128,13 @@ public class WaveSpawner : MonoBehaviour
     public void EnemyDowned(GameObject enemy)
     {
         _enemyList.Remove(enemy);
+
+        StartCoroutine(CheckWithDelay());
+    }
+    
+    private IEnumerator CheckWithDelay()
+    {
+        yield return new WaitForSeconds(_spawnInterval);
         
         if (_enemyList.Count == 0)
         {

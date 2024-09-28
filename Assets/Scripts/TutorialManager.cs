@@ -67,11 +67,11 @@ public class TutorialManager : MonoBehaviour
 		{
 			_wasdBool = true;
 			
-			StartCoroutine(StaticCoroutines.Fade(1f, _tutorialWASD));
-			StartCoroutine(StaticCoroutines.Fade(1f, _w));
-			StartCoroutine(StaticCoroutines.Fade(1f, _a));
-			StartCoroutine(StaticCoroutines.Fade(1f, _s));
-			StartCoroutine(StaticCoroutines.Fade(1f, _d));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr: _tutorialWASD));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_w));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_a));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_s));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_d));
 			
 			Test();
 		}
@@ -80,8 +80,8 @@ public class TutorialManager : MonoBehaviour
 		{
 			_eBool = true;
 			
-			StartCoroutine(StaticCoroutines.Fade(1f, _tutorialE));
-			StartCoroutine(StaticCoroutines.Fade(1f, _e));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_tutorialE));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_e));
 			
 			Test();
 		}
@@ -90,7 +90,7 @@ public class TutorialManager : MonoBehaviour
 		{
 			_mouseBool = true;
 			
-			StartCoroutine(StaticCoroutines.Fade(1f, _tutorialLMB));
+			StartCoroutine(StaticCoroutines.Fade(1f, sr:_tutorialLMB));
 			
 			Test();
 		}

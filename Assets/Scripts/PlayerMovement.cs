@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed = 12f;
+    [SerializeField] private float _movementSpeed = 8f;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private Animator _anim;
+    private PlayerHealth _ph;
     private Vector2 _movementDirection;
 
     private bool _isKnockback = false;
@@ -20,25 +21,41 @@ public class PlayerMovement : MonoBehaviour
         _sr = GetComponentInChildren<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponentInChildren<Animator>();
+        _ph = GetComponent<PlayerHealth>();
+    }
+
+    private void OnEnable()
+    {
+        _ph.PlayerDeathEvent.AddListener(PlayerDowned);
+    }
+    
+    private void OnDisable()
+    {
+        _ph.PlayerDeathEvent.RemoveListener(PlayerDowned);
     }
 
     private void Update()
     {
         // Movement
+        if (_ph.IsDowned) return;
         _movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
+        _movementDirection = Vector2.ClampMagnitude(_movementDirection, 1);
+
         Aim();
     }
 
     private void FixedUpdate()
     {
         // Apply velocity in direction
-        if (!_isKnockback)
+        if (!_isKnockback && !_ph.IsDowned)
         {
             _rb.velocity = _movementDirection * _movementSpeed;
         }
-        
-        _anim.SetBool("isMoving", _movementDirection != Vector2.zero);
+
+        if (!_ph.IsDowned)
+        {
+            _anim.SetBool("isMoving", _movementDirection != Vector2.zero);
+        }
     }
     
     private void Aim()
@@ -75,7 +92,13 @@ public class PlayerMovement : MonoBehaviour
         _rb.AddForce(force * 10, ForceMode2D.Impulse);
         _sr.color = Color.red;
         yield return new WaitForSeconds(duration);
-        _sr.color = Color.magenta;
+        _sr.color = Color.white;
         _isKnockback = false;
+    }
+    
+    private void PlayerDowned()
+    {
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _anim.SetBool("isMoving", false);
     }
 }

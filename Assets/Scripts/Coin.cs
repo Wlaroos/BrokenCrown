@@ -10,6 +10,7 @@ public class Coin : MonoBehaviour
     [SerializeField] private List<Sprite> _coinSprite = new List<Sprite>();
     [SerializeField] private Transform _coinPopup;
     private float _amount;
+    public float Amount => _amount;
     
     private Rigidbody2D _rb;
     private CapsuleCollider2D _cc;

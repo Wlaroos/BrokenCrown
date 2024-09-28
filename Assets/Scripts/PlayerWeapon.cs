@@ -22,10 +22,23 @@ public class PlayerWeapon : MonoBehaviour
 
     private bool _gunEndPoint = true;
     private bool _allowInput = true;
+    
+    private PlayerHealth _ph;
+
+    private void Awake()
+    {
+        _ph = GetComponentInParent<PlayerHealth>();
+    }
 
     private void OnEnable()
     {
         _allowInput = true;
+        _ph.PlayerDeathEvent.AddListener(DisableInput);
+    }
+    
+    private void OnDisable()
+    {
+        _ph.PlayerDeathEvent.RemoveListener(DisableInput);
     }
 
     private void Update()
@@ -127,5 +140,10 @@ public class PlayerWeapon : MonoBehaviour
 
         // Event
         Fired?.Invoke();
+    }
+    
+    private void DisableInput()
+    {
+        _allowInput = false;
     }
 }

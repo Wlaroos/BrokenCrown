@@ -27,13 +27,10 @@ public class TextPopup : MonoBehaviour
         
         while (elapsedTime < fadeDuration)
         {
-            
             elapsedTime += Time.deltaTime;
             
-            //var scale = Vector3.Lerp(Vector3.one, Vector3.zero, elapsedTime / fadeDuration);
             _text.alpha = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
 
-            //transform.localScale = scale;
             yield return null;
         }
     }

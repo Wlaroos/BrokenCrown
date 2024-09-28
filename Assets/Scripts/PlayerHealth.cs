@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +20,12 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer _sr;
     
     private bool _isInvincible = false;
+    private bool _isDowned = false;
+    public bool IsDowned => _isDowned;
+    
+    [SerializeField] private Transform _coinRef;
+    [SerializeField] private Sprite _downedSprite;
+    [SerializeField] private GameObject _deathScreen;
     
     public UnityEvent HealthChangeEvent;
     public UnityEvent PlayerDeathEvent;
@@ -26,7 +34,6 @@ public class PlayerHealth : MonoBehaviour
     {
         _sr = GetComponentInChildren<SpriteRenderer>();
         _currentHealth = _maxHealth;
-        
     }
     
     public void TakeDamage(Vector2 force,int damage)
@@ -40,13 +47,33 @@ public class PlayerHealth : MonoBehaviour
             _currentHealth -= damage;
             
             // Check for death, if not, add iFrames
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && !_isDowned)
             {
                 Death();
             }
+            else if(_currentHealth <= 0 && _isDowned)
+            {
+                StopCoroutine(IFrames(_iFrameDuration));
+                StartCoroutine(IFrames(_iFrameDuration));
+
+                if (PlayerStats.Instance.TotalMoney > 0)
+                {
+                    Transform coin = Instantiate(_coinRef, transform.position, quaternion.identity);
+                    coin.GetComponent<Coin>().Knockback();
+                    if (coin.GetComponent<Coin>().Amount > PlayerStats.Instance.TotalMoney)
+                    {
+                        PlayerStats.Instance.ChangeMoney(-PlayerStats.Instance.TotalMoney);
+                    }
+                    else
+                    {
+                        PlayerStats.Instance.ChangeMoney(-coin.GetComponent<Coin>().Amount);
+                    }
+                    
+                }
+            }
             else
             {
-                StopAllCoroutines();
+                StopCoroutine(IFrames(_iFrameDuration));
                 StartCoroutine(IFrames(_iFrameDuration));
             }
             
@@ -64,7 +91,6 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(duration);
         _sr.color = Color.white;
         _isInvincible = false;
-        
     }
     
     private void Death()
@@ -73,10 +99,38 @@ public class PlayerHealth : MonoBehaviour
         //int random = UnityEngine.Random.Range(0, 3);
         //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
         
+        _isDowned = true;
+        _sr.sortingOrder = -1;
+        _sr.sprite = _downedSprite;
         _sr.color = Color.white;
-        Debug.Log("Dead");
-        //Destroy(gameObject);
+        
+        transform.rotation = Quaternion.Euler(0,0,90);
+        
+        StartCoroutine(FadeIn(2f));
+        
+        transform.GetChild(2).gameObject.SetActive(false);
         
         PlayerDeathEvent.Invoke();
+    }
+    
+    private IEnumerator FadeIn(float fadeDuration)
+    {
+        SpriteRenderer sr = _deathScreen.GetComponent<SpriteRenderer>(); 
+        TMP_Text _text = _deathScreen.GetComponentInChildren<TMP_Text>();
+        
+        sr.color = Color.clear;
+        _text.alpha = 0;
+        
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            
+            sr.color = Color.Lerp(Color.clear, new Color32(0,0,0,150), elapsedTime / fadeDuration);
+            _text.alpha = Mathf.Lerp(0, 1, elapsedTime / fadeDuration);
+            
+            yield return null;
+        }
     }
 }
