@@ -73,38 +73,8 @@ public class EnemyHealth : MonoBehaviour
             
             // Subtract Health
             _currentDownHealth -= 1;
-            
-            // Weighted random for how many coins spawn
-            const int oneChance = 70;
-            const int twoChance = 20;
-            const int threeChance = 10;
-        
-            int value = 0;
-        
-            float x = Random.Range(0, oneChance + twoChance + threeChance);
 
-            switch (x)
-            {
-                // One Coin
-                case < oneChance:
-                    value = 1;
-                    break;
-                // Two Coins
-                case < oneChance + twoChance:
-                    value = 2;
-                    break;
-                // Three Coins
-                case < oneChance + twoChance + threeChance:
-                    value = 3;
-                    break;
-            }
-
-            // Spawn i amount of coins
-            for (int i = 1; i <= value; i++)
-            {
-                Transform coin = Instantiate(_coinRef, transform.position, quaternion.identity);
-                coin.GetComponent<Coin>().Knockback();
-            }
+            CoinSpawn();
             
             if (_currentDownHealth <= 0)
             {
@@ -131,6 +101,41 @@ public class EnemyHealth : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,0,90);
         _anim.SetBool("isMoving", false);
     }
+    
+    private void CoinSpawn()
+	{
+		// Weighted random for how many coins spawn
+		const int oneChance = 70;
+		const int twoChance = 20;
+		const int threeChance = 10;
+        
+		int value = 0;
+        
+		float x = Random.Range(0, oneChance + twoChance + threeChance);
+
+		switch (x)
+		{
+			// One Coin
+			case < oneChance:
+				value = 1;
+				break;
+			// Two Coins
+			case < oneChance + twoChance:
+				value = 2;
+				break;
+			// Three Coins
+			case < oneChance + twoChance + threeChance:
+				value = 3;
+				break;
+		}
+
+		// Spawn i amount of coins
+		for (int i = 1; i <= value; i++)
+		{
+			Transform coin = Instantiate(_coinRef, transform.position, quaternion.identity);
+			coin.GetComponent<Coin>().Knockback();
+		}
+	}
     
     private void Death()
     {

@@ -8,12 +8,6 @@ public class PlayerStats : MonoBehaviour
 
     // Total money the player has
     public float TotalMoney { get; private set; } = 0f;
-
-    // Max health of the player
-    public int MaxHealth { get; private set; } = 3;
-
-    // Current health of the player
-    public int CurrentHealth { get; private set; } = 3;
     
     // Tells the game if the player is on the shopping screen
     public bool IsShopping { get; private set; } = false;
@@ -24,7 +18,10 @@ public class PlayerStats : MonoBehaviour
     // Events
     public UnityEvent MoneyChangeEvent;
     public UnityEvent StatChangeEvent;
-    public UnityEvent ScreenChangeEvent;
+    public UnityEvent ShopScreenChangeEvent;
+    public UnityEvent FightScreenChangeEvent;
+    
+    private PlayerHealth _playerHealth;
 
     private void Awake()
     {
@@ -37,8 +34,10 @@ public class PlayerStats : MonoBehaviour
         {
             Instance = this;
         }
+        
+        _playerHealth = GetComponent<PlayerHealth>();
     }
-
+    
     public void ChangeMoney(float amount)
     {
         TotalMoney += amount;
@@ -49,7 +48,15 @@ public class PlayerStats : MonoBehaviour
     public void ScreenChange(bool isShopping)
     {
         IsShopping = isShopping;
-        ScreenChangeEvent.Invoke();
+        
+        if (isShopping)
+        {
+            ShopScreenChangeEvent.Invoke();
+        }
+        else
+        {
+            FightScreenChangeEvent.Invoke();
+        }
     }
     
     public void ChangeMoveSpeed(float amount)
@@ -63,5 +70,4 @@ public class PlayerStats : MonoBehaviour
         _fireDelayModifier += amount;
         StatChangeEvent.Invoke();
     }
-    
 }

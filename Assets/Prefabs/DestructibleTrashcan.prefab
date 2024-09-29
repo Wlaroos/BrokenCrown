@@ -134,7 +134,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2091165892150416934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae80e3667476e8c48b91fb7da45a8409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coinRef: {fileID: 8303063358192946279, guid: 093418a6e2f89fc4495dead9bbe63e2e, type: 3}
+  _healthItemRef: {fileID: 1366368711429068449, guid: 1344cc539919176478ceae5f8aa98c93, type: 3}
 --- !u!1001 &3793399348767490627
 PrefabInstance:
   m_ObjectHideFlags: 0

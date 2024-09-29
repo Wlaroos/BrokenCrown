@@ -71,6 +71,8 @@ public class Launchable : MonoBehaviour
             }
             
             transform.DetachChildren();
+            
+            Destroy(gameObject);
         }
         
         if(_createOnHit != null)

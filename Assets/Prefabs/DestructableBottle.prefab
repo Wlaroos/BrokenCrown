@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae80e3667476e8c48b91fb7da45a8409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coinRef: {fileID: 8303063358192946279, guid: 093418a6e2f89fc4495dead9bbe63e2e, type: 3}
+  _healthItemRef: {fileID: 1366368711429068449, guid: 1344cc539919176478ceae5f8aa98c93, type: 3}
 --- !u!114 &1084700398270667407
 MonoBehaviour:
   m_ObjectHideFlags: 0

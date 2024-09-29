@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackRecieved: 30
-  _damage: 2
+  _damage: 3
   _particle: {fileID: 6084113549990070661, guid: 35d0056ca2225344b948a91e70e01a32, type: 3}
   _createOnHit: {fileID: 0}
   _createOnHitAmount: 1

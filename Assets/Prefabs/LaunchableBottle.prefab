@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackRecieved: 15
-  _damage: 1
+  _damage: 2
+  _createOnHit: {fileID: 0}
+  _createOnHitAmount: 1
 --- !u!114 &-8787940334455470529
 MonoBehaviour:
   m_ObjectHideFlags: 0

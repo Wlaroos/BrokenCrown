@@ -17,7 +17,10 @@ public class WaveSpawner : MonoBehaviour
     
     [SerializeField] CameraTrigger _cameraTrigger;
     
+    [SerializeField] GameObject[] _destructiblePrefabs;
+    
     private List<GameObject> _enemyList = new List<GameObject>();
+    private List<GameObject> _itemList = new List<GameObject>();
     
     private int _currentWave = 0;
     
@@ -39,15 +42,19 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         TutorialManager.Instance.CombatTutorialCompleteEvent.AddListener(StartWave);
-        PlayerStats.Instance.ScreenChangeEvent.AddListener(StartWave);
+        PlayerStats.Instance.FightScreenChangeEvent.AddListener(StartWave);
+        PlayerStats.Instance.ShopScreenChangeEvent.AddListener(Cleanup);
+        
+        SpawnItems();
     }
 	
     private void OnDisable()
     {
         TutorialManager.Instance.CombatTutorialCompleteEvent.RemoveListener(StartWave);
-        PlayerStats.Instance.ScreenChangeEvent.RemoveListener(StartWave);
+        PlayerStats.Instance.FightScreenChangeEvent.RemoveListener(StartWave);
+        PlayerStats.Instance.ShopScreenChangeEvent.RemoveListener(Cleanup);
     }
-    
+
     private IEnumerator SpawnEnemies(int enemiesPerWave)
     {
         for (int i = 0; i < enemiesPerWave; i++)
@@ -123,6 +130,21 @@ public class WaveSpawner : MonoBehaviour
     private void StartWave()
     {
         StartCoroutine(SpawnWave());
+
+        Debug.Log(_currentWave);
+        if (_currentWave != 0)
+        {
+            SpawnItems();
+        }
+        
+    }
+    
+    private void Cleanup()
+    {
+        foreach(GameObject item in _itemList)
+        {
+            Destroy(item);
+        }
     }
     
     public void EnemyDowned(GameObject enemy)
@@ -149,6 +171,15 @@ public class WaveSpawner : MonoBehaviour
                 Debug.Log("Wave complete! All enemies downed.");
                 this.DelayAction(_cameraTrigger.OpenStore, 2.0f);
             }
+        }
+    }
+
+    private void SpawnItems()
+    {
+        for (int i = 0; i < Random.Range(4,7); i++)
+        {
+            GameObject item = Instantiate(_destructiblePrefabs[Random.Range(0, _destructiblePrefabs.Length)], new Vector3(Random.Range(-9, 9), Random.Range(-8, 8), 0), Quaternion.identity);
+            _itemList.Add(item);
         }
     }
 }

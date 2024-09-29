@@ -85,6 +85,17 @@ public class PlayerHealth : MonoBehaviour
         //healthBar.localScale = new Vector3((((float)_currentHealth / (float)_maxHealth) * 0.315f), healthBar.localScale.y, healthBar.localScale.z);
     }
     
+    public void Heal(int amount)
+    {
+        _currentHealth += amount;
+        if (_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+        
+        HealthChangeEvent.Invoke();
+    }
+    
     private IEnumerator IFrames(float duration)
     {
         _isInvincible = true;

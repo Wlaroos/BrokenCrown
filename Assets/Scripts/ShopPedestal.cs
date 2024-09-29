@@ -78,7 +78,7 @@ public class ShopPedestal : MonoBehaviour
 
              _itemName.text = "- " + _item.GetComponent<BaseItem>().GetName() + " -";
              _itemDescription.text = _item.GetComponent<BaseItem>().GetDescription();
-             _itemPrice.text = _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
+             _itemPrice.text ="$" + _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
          }
      }
      
