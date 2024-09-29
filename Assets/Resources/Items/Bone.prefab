@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5169069154467774462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.35, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Bone
-  _description: Gnaw on it to gain animal-like abilities
+  _description: Spawns a bone in the level that you can hit into people. Be careful,
+    it splinters...
   _price: 0.46
   _bonePrefab: {fileID: 2091165892150416933, guid: a79c078679df3f044b4abe6e33f11a26, type: 3}

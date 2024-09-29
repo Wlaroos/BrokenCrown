@@ -44,13 +44,32 @@ public class BaseItem : MonoBehaviour
 	{
 		
 	}
+	
+	protected virtual void Upgrade()
+	{
+
+	}
 
 	private void AttachToPlayer()
 	{
-		transform.SetParent(_itemHolder);
-		GetComponent<SpriteRenderer>().enabled = false;
-		ItemEffects();
-		_activated = true;
+		if (PlayerStats.Instance.Items.Exists(x => x.name == _name))
+		{
+			Debug.Log("SOMETHING IS HERE");
+			PlayerStats.Instance.Items.Find(x => x.name == _name).GetComponent<BaseItem>().Upgrade();
+			Destroy();
+		}
+		else
+		{
+			Debug.Log("NORMAL");
+			transform.SetParent(_itemHolder);
+			transform.position = _itemHolder.position;
+		
+			GetComponent<SpriteRenderer>().enabled = false;
+			ItemEffects();
+			_activated = true;
+		
+			PlayerStats.Instance.Items.Add(gameObject);
+		}
 	}
 	
 	protected void Destroy()

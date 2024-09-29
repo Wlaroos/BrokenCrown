@@ -8,4 +8,9 @@ public class Brick : BaseItem
     {
         Instantiate(_brickPrefab, new Vector3(Random.Range(-9, 9), Random.Range(-8, 8), 0), Quaternion.identity);
     }
+    
+    protected override void Upgrade()
+    {
+        ItemEffects();
+    }
 }

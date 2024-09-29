@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,6 +23,16 @@ public class Launchable : MonoBehaviour
         {
             _particle = transform.GetChild(0).GetComponent<ParticleSystem>();
         }
+    }
+
+    private void Start()
+    {
+        PlayerStats.Instance.ShopScreenChangeEvent.AddListener(Destroy);
+    }
+
+    private void OnDisable()
+    {
+        PlayerStats.Instance.ShopScreenChangeEvent.RemoveListener(Destroy);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -79,6 +90,11 @@ public class Launchable : MonoBehaviour
             transform.DetachChildren();
         }
         
+        Destroy();
+    }
+
+    private void Destroy()
+    {
         Destroy(gameObject);
     }
 }

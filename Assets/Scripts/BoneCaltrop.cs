@@ -6,14 +6,16 @@ using Random = UnityEngine.Random;
 
 public class BoneCaltrop : MonoBehaviour
 {
+    [SerializeField] private float _force = 10f;
+    [SerializeField]private float _startDelay = 0.1f;
+    
     private Rigidbody2D _rb;
     private bool _canDamage = false;
-    private float _startDelay = .2f;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _rb.AddForce(new Vector2(Random.Range(-3,3), Random.Range(-3,3)), ForceMode2D.Impulse);
+        _rb.AddForce(new Vector2(Random.Range(-_force,_force), Random.Range(-_force,_force)), ForceMode2D.Impulse);
     }
 
     private void Start()

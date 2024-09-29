@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5240550148558361070}
   - component: {fileID: 5240550148558361069}
   - component: {fileID: 5240550148558361066}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: BoneCaltrop
-  m_TagString: Untagged
+  m_TagString: Destructibles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0b26da0fe61e44b88752586323f7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 10
 --- !u!114 &5240550148558361066
 MonoBehaviour:
   m_ObjectHideFlags: 0

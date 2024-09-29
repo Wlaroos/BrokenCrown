@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     
     // Tells the game if the player is on the shopping screen
     public bool IsShopping { get; private set; } = false;
+    
+    public List<GameObject> Items = new List<GameObject>();
 
     private float _moveSpeedModifier = 0f;
     private float _fireDelayModifier = 0f;

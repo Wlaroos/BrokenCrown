@@ -148,6 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _knockbackRecieved: 20
   _damage: 1
-  _oneTimeUse: 1
   _createOnHit: {fileID: 5240550148558361068, guid: 52ebd01d28c2b2d4ba7c51859f7e2ee1, type: 3}
-  _createOnHitAmount: 3
+  _createOnHitAmount: 5
