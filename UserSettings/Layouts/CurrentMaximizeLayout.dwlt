@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 123384
+  controlID: 126809
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 123385
+  controlID: 126799
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 123386
+  controlID: 126800
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,10 +223,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 103}
-      m_SelectedIDs: aa23f9ff
-      m_LastClickedID: -449622
-      m_ExpandedIDs: baf7fbff16f8fbffb632fcffa034fcffa45dfeffb05dfeff4681feffe6c5ffff14fbffff2afbfffff4ffffff825a0000945a0000025b0000465b0000745b0000fe5b0000
+      scrollPos: {x: 0, y: 135}
+      m_SelectedIDs: daeef8ff
+      m_LastClickedID: -463142
+      m_ExpandedIDs: baf7fbff16f8fbffb632fcffa034fcffa45dfeffb05dfeff4681feffe6c5ffff14fbffff2afbfffff4ffffff945a0000025b0000465b0000745b00008c5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -526,9 +526,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.9409423, y: -2.5638614, z: 0.041914888}
+    m_Target: {x: 20.495737, y: 0.7229703, z: 0.3680061}
     speed: 2
-    m_Value: {x: 4.9409423, y: -2.5638614, z: 0.041914888}
+    m_Value: {x: 20.495737, y: 0.7229703, z: 0.3680061}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,9 +579,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.887483
+    m_Target: 4.5742254
     speed: 2
-    m_Value: 13.887483
+    m_Value: 4.5742254
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 123487
+  controlID: 126754
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -790,22 +790,22 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Items
+    - Assets/Art/Shop
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Items
+  - Assets/Art/Shop
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\Projects\BrokenCrown
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f46f0000
-    m_LastClickedID: 28660
-    m_ExpandedIDs: 00000000c45f0000c65f0000c85f0000d45f000000ca9a3b
+    m_SelectedIDs: 70730000
+    m_LastClickedID: 29552
+    m_ExpandedIDs: 00000000c45f0000c65f0000c85f0000d05f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -858,9 +858,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: aa23f9ff
-    m_LastClickedInstanceID: -449622
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: daeef8ff
+    m_LastClickedInstanceID: -463142
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000065b000000000000005d00001c760000e2c60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
