@@ -31,10 +31,15 @@ public class BaseItem : MonoBehaviour
 	{
 		if (_activated)
 		{
-			ItemEffects();
+			ItemEffectsUpdate();
 		}
 	}
 
+	protected virtual void ItemEffectsUpdate()
+	{
+		
+	}
+	
 	protected virtual void ItemEffects()
 	{
 		
@@ -44,6 +49,7 @@ public class BaseItem : MonoBehaviour
 	{
 		transform.SetParent(_itemHolder);
 		GetComponent<SpriteRenderer>().enabled = false;
+		ItemEffects();
 		_activated = true;
 	}
 	

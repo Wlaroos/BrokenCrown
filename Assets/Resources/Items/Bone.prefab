@@ -98,6 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Bone
-  _sprite: {fileID: -180282775, guid: c5225a2a2d22174488be492cc7af8d16, type: 3}
   _description: Gnaw on it to gain animal-like abilities
   _price: 0.46
+  _bonePrefab: {fileID: 2091165892150416933, guid: a79c078679df3f044b4abe6e33f11a26, type: 3}

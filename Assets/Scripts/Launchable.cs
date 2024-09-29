@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Launchable : MonoBehaviour
@@ -36,7 +34,7 @@ public class Launchable : MonoBehaviour
         }
         
         // If the object is moving fast enough, deal damage to the enemy
-        if (other.GetComponent<EnemyHealth>() != null && !_isDestroyed && _wasHit && other.GetComponent<EnemyHealth>().IsDowned == false && _rb.velocity.magnitude > 2f)
+        if (other.GetComponent<EnemyHealth>() != null && !_isDestroyed && _wasHit && _rb.velocity.magnitude > 1f)
         {
             other.GetComponent<EnemyHealth>().TakeDamage(transform.right, _damage);
             Explode();
@@ -55,12 +53,20 @@ public class Launchable : MonoBehaviour
     private IEnumerator Hitbox()
     {
         _wasHit = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         _wasHit = false;
     }
     
     private void Explode()
     {
+        if(_createOnHit != null)
+        {
+            for (int i = 0; i < _createOnHitAmount; i++)
+            {
+                Instantiate(_createOnHit, transform.position, Quaternion.identity);
+            }
+        }
+        
         if (transform.childCount > 0)
         {
             _particle.Play();
@@ -71,16 +77,8 @@ public class Launchable : MonoBehaviour
             }
             
             transform.DetachChildren();
-            
-            Destroy(gameObject);
         }
         
-        if(_createOnHit != null)
-        {
-            for (int i = 0; i < _createOnHitAmount; i++)
-            {
-                Instantiate(_createOnHit, transform.position, Quaternion.identity);
-            }
-        }
+        Destroy(gameObject);
     }
 }

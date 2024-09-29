@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class EnemyHealth : MonoBehaviour
@@ -70,12 +67,27 @@ public class EnemyHealth : MonoBehaviour
         {
             // Knockback
             _rb.AddForce(force * (_knockbackMult / 3), ForceMode2D.Impulse);
-            
-            // Subtract Health
-            _currentDownHealth -= 1;
 
-            CoinSpawn();
+            // Spawn coins based on damage dealt
+            if (damage < _currentDownHealth)
+            {
+	            for (int i = 0; i < damage; i++)
+	            {
+		            CoinSpawn();
+	            }
+            }
+            else
+			{
+	            for (int i = 0; i < _currentDownHealth; i++)
+	            {
+		            CoinSpawn();
+	            }
+			}
+
+            // Subtract Health
+            _currentDownHealth -= damage;
             
+            // Check for death
             if (_currentDownHealth <= 0)
             {
                 Death();
@@ -91,6 +103,7 @@ public class EnemyHealth : MonoBehaviour
         _sr.color = Color.white;
     }
 
+    // Shows enemy is downed
     private void Downed()
     {
         StopAllCoroutines();
@@ -102,6 +115,7 @@ public class EnemyHealth : MonoBehaviour
         _anim.SetBool("isMoving", false);
     }
     
+    // Spawns coins
     private void CoinSpawn()
 	{
 		// Weighted random for how many coins spawn
@@ -137,6 +151,7 @@ public class EnemyHealth : MonoBehaviour
 		}
 	}
     
+    // Shows enemy is dead
     private void Death()
     {
 	    Instantiate(_deathPs, transform.position, Quaternion.identity);
@@ -147,6 +162,7 @@ public class EnemyHealth : MonoBehaviour
 	    //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
     }
     
+    // Destroys the enemy
 	private void Destroy()
 	{
 		Destroy(gameObject);

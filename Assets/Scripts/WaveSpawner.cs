@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
@@ -12,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
     
     [SerializeField] private GameObject[] _enemyPrefabs;
     [SerializeField] private int _numberOfWaves = 5;
-    [SerializeField] private float _spawnInterval = 2.0f;
+    [SerializeField] private float _spawnInterval = 1.5f;
     [SerializeField] private float _waveDelay = 2.0f;
     
     [SerializeField] CameraTrigger _cameraTrigger;
@@ -130,8 +128,7 @@ public class WaveSpawner : MonoBehaviour
     private void StartWave()
     {
         StartCoroutine(SpawnWave());
-
-        Debug.Log(_currentWave);
+        
         if (_currentWave != 0)
         {
             SpawnItems();

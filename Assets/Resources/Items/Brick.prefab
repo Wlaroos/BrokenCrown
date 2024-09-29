@@ -100,3 +100,4 @@ MonoBehaviour:
   _name: Brick
   _description: Throw it
   _price: 0.5
+  _brickPrefab: {fileID: 2091165892150416933, guid: 04d71b4f596b0264f92b2384690173ea, type: 3}

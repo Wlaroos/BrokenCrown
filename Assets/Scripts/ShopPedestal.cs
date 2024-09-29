@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShopPedestal : MonoBehaviour
 {
     [SerializeField] private Sprite _openSprite;
+    private Sprite _closedSprite;
     
      private List<GameObject> _itemList = new List<GameObject>();
      private GameObject[] _itemArray;
@@ -35,6 +36,7 @@ public class ShopPedestal : MonoBehaviour
          _ps = transform.GetChild(1).GetComponent<ParticleSystem>();
          _sr = GetComponent<SpriteRenderer>();
          _bc = GetComponent<BoxCollider2D>();
+         _closedSprite = _sr.sprite;
          
          _textPopupRef = GameObject.Find("Text Popup").GetComponent<TextPopup>();
          
@@ -58,6 +60,16 @@ public class ShopPedestal : MonoBehaviour
          _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
              
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
+     }
+
+     private void Start()
+     {
+         PlayerStats.Instance.ShopScreenChangeEvent.AddListener(RerollAfterPurchased);
+     }
+
+     private void OnDisable()
+     {
+         PlayerStats.Instance.ShopScreenChangeEvent.RemoveListener(RerollAfterPurchased);
      }
 
      private void Update()
@@ -124,6 +136,25 @@ public class ShopPedestal : MonoBehaviour
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
 
          Debug.Log("Purchased " + _item.GetComponent<BaseItem>().GetName());
+     }
+
+     private void RerollAfterPurchased()
+     {
+         if (_isPurchased)
+         {
+             _sr.sprite = _closedSprite;
+             
+             _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
+             _item = _itemList[_randomNum];
+
+             _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
+             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
+
+             if (_itemList.Count > 1)
+             {
+                 _itemList.Remove(_item);
+             }
+         }
      }
 
      public void Reroll()
