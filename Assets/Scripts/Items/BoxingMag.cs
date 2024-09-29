@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BoxingMag : BaseItem
 {
+    [SerializeField] private float _fireRateModifierAmount = 1.5f;
+    
     protected override void ItemEffects()
     {
-        // Add the effect to the player
+        PlayerStats.Instance.ChangeFireRate(_fireRateModifierAmount);
+        PlayerStats.Instance.RemoveItemFromPool(_name);
     }
 }

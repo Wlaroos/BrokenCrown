@@ -17,7 +17,8 @@ public class PlayerWeapon : MonoBehaviour
     private Vector3 _mousePos;
 
     [SerializeField] private bool _isAuto;
-    [SerializeField] private float _fireRate;
+    [SerializeField] private float _initialFireRate;
+    private float _fireRate;
     private float _startFireTime;
 
     private bool _gunEndPoint = true;
@@ -28,17 +29,20 @@ public class PlayerWeapon : MonoBehaviour
     private void Awake()
     {
         _ph = GetComponentInParent<PlayerHealth>();
+        _fireRate = _initialFireRate;
     }
 
     private void OnEnable()
     {
         _allowInput = true;
         _ph.PlayerDeathEvent.AddListener(DisableInput);
+        PlayerStats.Instance.StatChangeEvent.AddListener(StatChanges);
     }
     
     private void OnDisable()
     {
         _ph.PlayerDeathEvent.RemoveListener(DisableInput);
+        PlayerStats.Instance.StatChangeEvent.RemoveListener(StatChanges);
     }
 
     private void Update()
@@ -145,5 +149,11 @@ public class PlayerWeapon : MonoBehaviour
     private void DisableInput()
     {
         _allowInput = false;
+    }
+
+    private void StatChanges()
+    {
+        float fireRate = _initialFireRate * PlayerStats.Instance.FireRateModifier;
+        _fireRate = fireRate;
     }
 }

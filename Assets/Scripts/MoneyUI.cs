@@ -14,14 +14,9 @@ public class MoneyUI : MonoBehaviour
 	private float _moneyAmount = 0.00f;
 	private string _moneyString = "0.00";
 	
-	private void Awake()
-	{
-		PlayerStats.Instance.MoneyChangeEvent.AddListener(MoneyUpdate);
-	}
-	
 	private void OnEnable()
 	{
-		
+		PlayerStats.Instance.MoneyChangeEvent.AddListener(MoneyUpdate);
 	}
 	
 	private void OnDisable()

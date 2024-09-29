@@ -98,5 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Boxing Mag
-  _description: Learn to throw punches faster
+  _description: Learn to throw punches faster through dedicated training
   _price: 0.97
+  _fireRateModifierAmount: 1.5

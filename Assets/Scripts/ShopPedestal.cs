@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ShopPedestal : MonoBehaviour
 {
     [SerializeField] private Sprite _openSprite;
     private Sprite _closedSprite;
     
-     private List<GameObject> _itemList = new List<GameObject>();
-     private GameObject[] _itemArray;
+
      private GameObject _item;
 
      // Item textbox
@@ -30,29 +28,24 @@ public class ShopPedestal : MonoBehaviour
      
      private bool _isPurchased;
      private bool _isOverlapping;
-     
+
      private void Awake()
      {
          _ps = transform.GetChild(1).GetComponent<ParticleSystem>();
          _sr = GetComponent<SpriteRenderer>();
          _bc = GetComponent<BoxCollider2D>();
          _closedSprite = _sr.sprite;
+     }
+
+     private void OnEnable()
+     {
+         _randomNum = Random.Range(0, PlayerStats.Instance.ItemList.Count);
+         
+         _item = PlayerStats.Instance.ItemList[_randomNum];
          
          _textPopupRef = GameObject.Find("Text Popup").GetComponent<TextPopup>();
          
          _itemTextbox = GameObject.Find("Item Textbox");
-         
-         _itemArray = Resources.LoadAll<GameObject>("Items");
-         
-         foreach (var item in _itemArray)
-         {
-             _itemList.Add(item);
-         }
-         
-         _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
-         
-         _item = _itemList[_randomNum];
-         _itemList.Remove(_item);
          
          _itemName = _itemTextbox.transform.GetChild(0).GetComponent<TMP_Text>();
          _itemDescription = _itemTextbox.transform.GetChild(1).GetComponent<TMP_Text>();
@@ -60,10 +53,7 @@ public class ShopPedestal : MonoBehaviour
          _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
              
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
-     }
-
-     private void Start()
-     {
+         
          PlayerStats.Instance.ShopScreenChangeEvent.AddListener(RerollAfterPurchased);
      }
 
@@ -87,10 +77,8 @@ public class ShopPedestal : MonoBehaviour
              _itemTextbox.SetActive(true);
              _isOverlapping = true;
              _itemTextbox.transform.position = transform.position + new Vector3(0, -3f, 0);
-
-             _itemName.text = "- " + _item.GetComponent<BaseItem>().GetName() + " -";
-             _itemDescription.text = _item.GetComponent<BaseItem>().GetDescription();
-             _itemPrice.text ="$" + _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
+             
+             UpdateTextBox();
          }
      }
      
@@ -145,16 +133,18 @@ public class ShopPedestal : MonoBehaviour
              _bc.enabled = true;
              _isPurchased = false;
              
-             _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
-             _item = _itemList[_randomNum];
+             _randomNum = Random.Range(0, PlayerStats.Instance.ItemList.Count);
+             if(PlayerStats.Instance.ItemList[_randomNum].Equals(_item))
+             {
+                 Reroll();
+                 return;
+             }
+             _item = PlayerStats.Instance.ItemList[_randomNum];
 
              _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
              transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
-
-             if (_itemList.Count > 1)
-             {
-                 _itemList.Remove(_item);
-             }
+             
+             UpdateTextBox();
          }
      }
 
@@ -162,16 +152,25 @@ public class ShopPedestal : MonoBehaviour
      {
          if (!_isPurchased)
          {
-             _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
-             _item = _itemList[_randomNum];
+             _randomNum = Random.Range(0, PlayerStats.Instance.ItemList.Count);
+             if(PlayerStats.Instance.ItemList[_randomNum].Equals(_item))
+             {
+                 Reroll();
+                 return;
+             }
+             _item = PlayerStats.Instance.ItemList[_randomNum];
 
              _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
              transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
-
-             if (_itemList.Count > 1)
-             {
-                 _itemList.Remove(_item);
-             }
+             
+             UpdateTextBox();
          }
+     }
+
+     private void UpdateTextBox()
+     {
+         _itemName.text = "- " + _item.GetComponent<BaseItem>().GetName() + " -";
+         _itemDescription.text = _item.GetComponent<BaseItem>().GetDescription();
+         _itemPrice.text ="$" + _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
      }
 }

@@ -25,7 +25,7 @@ public class Launchable : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
         PlayerStats.Instance.ShopScreenChangeEvent.AddListener(Destroy);
     }

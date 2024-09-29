@@ -2083,7 +2083,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684277555
 GameObject:
@@ -2696,7 +2696,7 @@ MonoBehaviour:
   _shootTransform1: {fileID: 1019150120}
   _shootTransform2: {fileID: 1166677682}
   _isAuto: 1
-  _fireRate: 2.5
+  _initialFireRate: 2.5
 --- !u!1 &795900058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4114,7 @@ Transform:
   - {fileID: 296220276}
   - {fileID: 1894425746}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1302933150
 BoxCollider2D:
@@ -4185,7 +4185,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1311452467
 MonoBehaviour:
@@ -4350,7 +4350,7 @@ Transform:
   - {fileID: 849536844}
   - {fileID: 269207883}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1327774558
 MonoBehaviour:
@@ -6405,7 +6405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429859346808766265, guid: 03f3f6e95b5cefb498d204010d9ed425, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7429859346808766265, guid: 03f3f6e95b5cefb498d204010d9ed425, type: 3}
       propertyPath: m_AnchorMax.x

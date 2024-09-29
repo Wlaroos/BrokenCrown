@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,13 +40,16 @@ public class WaveSpawner : MonoBehaviour
     
     private void Start()
     {
+        SpawnItems();
+    }
+
+    private void OnEnable()
+    {
         TutorialManager.Instance.CombatTutorialCompleteEvent.AddListener(StartWave);
         PlayerStats.Instance.FightScreenChangeEvent.AddListener(StartWave);
         PlayerStats.Instance.ShopScreenChangeEvent.AddListener(Cleanup);
-        
-        SpawnItems();
     }
-	
+
     private void OnDisable()
     {
         TutorialManager.Instance.CombatTutorialCompleteEvent.RemoveListener(StartWave);

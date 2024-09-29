@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed = 8f;
+    [SerializeField] private float _initialMovementSpeed = 8f;
+    private float _movementSpeed;
+    
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private Animator _anim;
@@ -22,16 +24,20 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponentInChildren<Animator>();
         _ph = GetComponent<PlayerHealth>();
+        
+        _movementSpeed = _initialMovementSpeed;
     }
 
     private void OnEnable()
     {
         _ph.PlayerDeathEvent.AddListener(PlayerDowned);
+        PlayerStats.Instance.StatChangeEvent.AddListener(StatChanges);
     }
     
     private void OnDisable()
     {
         _ph.PlayerDeathEvent.RemoveListener(PlayerDowned);
+        PlayerStats.Instance.StatChangeEvent.RemoveListener(StatChanges);
     }
 
     private void Update()
@@ -100,5 +106,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         _anim.SetBool("isMoving", false);
+    }
+
+    private void StatChanges()
+    {
+        float movementSpeed = _initialMovementSpeed + PlayerStats.Instance.MoveSpeedModifier;
+        _movementSpeed = movementSpeed;
     }
 }

@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Shoe
-  _description: No clue where the other one is
+  _description: A single shoe. At least this'll help you run faster on one foot
   _price: 0.57

@@ -11,7 +11,6 @@ public class BaseItem : MonoBehaviour
 	[SerializeField] protected string _name;
 	[SerializeField] protected string _description;
 	[SerializeField] protected float _price;
-	private Sprite _sprite;
 
 	private bool _activated;
 
@@ -19,7 +18,6 @@ public class BaseItem : MonoBehaviour
 	{
 		_itemHolder = GameObject.FindWithTag("ItemHolder").transform;
 		_name = this.name;
-		_sprite = GetComponent<SpriteRenderer>().sprite;
 	}
 	
 	public virtual void Purchased()
@@ -52,15 +50,13 @@ public class BaseItem : MonoBehaviour
 
 	private void AttachToPlayer()
 	{
-		if (PlayerStats.Instance.Items.Exists(x => x.name == _name))
+		if (PlayerStats.Instance.EquippedItems.Exists(x => x.name == _name))
 		{
-			Debug.Log("SOMETHING IS HERE");
-			PlayerStats.Instance.Items.Find(x => x.name == _name).GetComponent<BaseItem>().Upgrade();
+			PlayerStats.Instance.EquippedItems.Find(x => x.name == _name).GetComponent<BaseItem>().Upgrade();
 			Destroy();
 		}
 		else
 		{
-			Debug.Log("NORMAL");
 			transform.SetParent(_itemHolder);
 			transform.position = _itemHolder.position;
 		
@@ -68,11 +64,11 @@ public class BaseItem : MonoBehaviour
 			ItemEffects();
 			_activated = true;
 		
-			PlayerStats.Instance.Items.Add(gameObject);
+			PlayerStats.Instance.EquippedItems.Add(gameObject);
 		}
 	}
-	
-	protected void Destroy()
+
+	private void Destroy()
 	{
 		Destroy(gameObject);
 	}
@@ -87,13 +83,23 @@ public class BaseItem : MonoBehaviour
 		return _description;
 	}
 	
-	public Sprite GetSprite()
-	{
-		return _sprite;
-	}
-	
 	public float GetPrice()
 	{
 		return _price;
+	}
+	
+	public void SetName(string name)
+	{
+		_name = name;
+	}
+	
+	public void SetDescription( string description)
+	{
+		_description = description;
+	}
+	
+	public void SetPrice(float price)
+	{
+		_price = price;
 	}
 }
