@@ -2062,7 +2062,7 @@ MonoBehaviour:
   _waveDelay: 2
   _cameraTrigger: {fileID: 1302933148}
   _destructiblePrefabs:
-  - {fileID: 2091165892150416933, guid: 13b8e3268a412964682db00cce02138f, type: 3}
+  - {fileID: 2091165892150416933, guid: 2bff80828e818b14180311c840e83746, type: 3}
   - {fileID: 2091165892150416933, guid: 2bff80828e818b14180311c840e83746, type: 3}
   - {fileID: 2091165892150416933, guid: 233972fcd7e71fd4882d9dd52bbf444f, type: 3}
   - {fileID: 2091165892150416933, guid: ac9af891c81b2f4448129f7aa2401e8f, type: 3}

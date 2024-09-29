@@ -122,8 +122,8 @@ public class ShopPedestal : MonoBehaviour
          GameObject item = Instantiate(_item, transform.position, Quaternion.identity);
          item.GetComponent<BaseItem>().Purchased();
 
+         _sr.sprite = _openSprite;
          _isPurchased = true;
-         
          _bc.enabled = false;
          
          _ps.Play();
@@ -132,7 +132,6 @@ public class ShopPedestal : MonoBehaviour
              child.GetComponent<ParticleSystem>().Play();
          }
          
-         _sr.sprite = _openSprite;
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
 
          Debug.Log("Purchased " + _item.GetComponent<BaseItem>().GetName());
@@ -143,6 +142,8 @@ public class ShopPedestal : MonoBehaviour
          if (_isPurchased)
          {
              _sr.sprite = _closedSprite;
+             _bc.enabled = true;
+             _isPurchased = false;
              
              _randomNum = UnityEngine.Random.Range(0, _itemList.Count);
              _item = _itemList[_randomNum];
