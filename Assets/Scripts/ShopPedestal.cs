@@ -10,6 +10,7 @@ public class ShopPedestal : MonoBehaviour
     
 
      private GameObject _item;
+     public GameObject Item => _item;
 
      // Item textbox
      private GameObject _itemTextbox;
@@ -28,6 +29,8 @@ public class ShopPedestal : MonoBehaviour
      
      private bool _isPurchased;
      private bool _isOverlapping;
+     
+     private ShopPedestal _otherShopPedestal;
 
      private void Awake()
      {
@@ -61,7 +64,7 @@ public class ShopPedestal : MonoBehaviour
      {
          PlayerStats.Instance.ShopScreenChangeEvent.RemoveListener(RerollAfterPurchased);
      }
-
+     
      private void Update()
      {
          if (Input.GetKeyDown(KeyCode.E) && _isOverlapping)
@@ -133,18 +136,7 @@ public class ShopPedestal : MonoBehaviour
              _bc.enabled = true;
              _isPurchased = false;
              
-             _randomNum = Random.Range(0, PlayerStats.Instance.ItemList.Count);
-             if(PlayerStats.Instance.ItemList[_randomNum].Equals(_item))
-             {
-                 Reroll();
-                 return;
-             }
-             _item = PlayerStats.Instance.ItemList[_randomNum];
-
-             _itemSprite = _item.GetComponent<SpriteRenderer>().sprite;
-             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _itemSprite;
-             
-             UpdateTextBox();
+             Reroll();
          }
      }
 
@@ -169,8 +161,11 @@ public class ShopPedestal : MonoBehaviour
 
      private void UpdateTextBox()
      {
-         _itemName.text = "- " + _item.GetComponent<BaseItem>().GetName() + " -";
-         _itemDescription.text = _item.GetComponent<BaseItem>().GetDescription();
-         _itemPrice.text ="$" + _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
+         if (_isOverlapping)
+         {
+             _itemName.text = "- " + _item.GetComponent<BaseItem>().GetName() + " -";
+             _itemDescription.text = _item.GetComponent<BaseItem>().GetDescription();
+             _itemPrice.text = "$" + _item.GetComponent<BaseItem>().GetPrice().ToString("F2");
+         }
      }
 }
