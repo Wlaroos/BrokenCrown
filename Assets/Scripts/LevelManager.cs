@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) 
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            MusicManager.Instance.SwapTrack(true);
         }
         
         // Exit Game

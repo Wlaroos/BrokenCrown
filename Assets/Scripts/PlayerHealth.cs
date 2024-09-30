@@ -128,6 +128,8 @@ public class PlayerHealth : MonoBehaviour
         
         transform.GetChild(2).gameObject.SetActive(false);
         
+        MusicManager.Instance.SwapTrack(false);
+        
         PlayerDeathEvent.Invoke();
     }
 
