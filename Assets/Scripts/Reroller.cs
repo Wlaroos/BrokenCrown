@@ -44,6 +44,8 @@ public class Reroller : MonoBehaviour
     {
         if(other.GetComponent<PlayerMovement>() != null)
         {
+            SFXManager.Instance.PlayTextboxHoverSFX();
+            
             _itemTextbox.SetActive(true);
             _isOverlapping = true;
             _itemTextbox.transform.position = transform.position + new Vector3(-2, -3f, 0);
@@ -59,6 +61,8 @@ public class Reroller : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
+            SFXManager.Instance.PlayTextboxHoverSFX();
+            
             _isOverlapping = false;
             _itemTextbox.SetActive(false);
         }
@@ -74,6 +78,7 @@ public class Reroller : MonoBehaviour
         else
         {
             _textPopupRef.StartFade();
+            SFXManager.Instance.PlayNoMoneySFX();
         }
     }
     
@@ -86,5 +91,7 @@ public class Reroller : MonoBehaviour
         }
         
         PlayerStats.Instance.ChangeMoney(-_rerollPrice);
+        
+        SFXManager.Instance.PlayRerollSFX();
     }
 }

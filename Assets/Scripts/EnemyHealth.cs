@@ -93,6 +93,8 @@ public class EnemyHealth : MonoBehaviour
                 Death();
             }
         }
+        
+        SFXManager.Instance.PlayEnemyHitSFX();
     }
     
     // Shows enemy was hit
@@ -113,6 +115,8 @@ public class EnemyHealth : MonoBehaviour
 	    _sr.sprite = _deathSprites[_spriteIndex];
         transform.rotation = Quaternion.Euler(0,0,90);
         _anim.SetBool("isMoving", false);
+        
+        SFXManager.Instance.PlayEnemyDownSFX();
     }
     
     // Spawns coins
@@ -159,7 +163,8 @@ public class EnemyHealth : MonoBehaviour
 	    StartCoroutine(StaticCoroutines.Fade(0.5f, _sr, Destroy));
 	    
 	    //int random = UnityEngine.Random.Range(0, 3);
-	    //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
+	    
+	    SFXManager.Instance.PlayEnemyDownSFX();
     }
     
     // Destroys the enemy

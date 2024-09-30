@@ -89,13 +89,13 @@ public class PlayerHealth : MonoBehaviour
             HealthChangeEvent.Invoke();
         }
 
-        //int random = UnityEngine.Random.Range(0, 4);
-        //AudioHelper.PlayClip2D(enemyHitSFX[random], 1);
-        //healthBar.localScale = new Vector3((((float)_currentHealth / (float)_maxHealth) * 0.315f), healthBar.localScale.y, healthBar.localScale.z);
+        SFXManager.Instance.PlayPlayerHurtSFX();
     }
     
     public void Heal(int amount)
     {
+        SFXManager.Instance.PlayHealSFX();
+        
         _currentHealth += amount;
         if (_currentHealth > _maxHealth)
         {
@@ -117,7 +117,8 @@ public class PlayerHealth : MonoBehaviour
     {
         //Instantiate(_ps, transform.position, Quaternion.identity);
         //int random = UnityEngine.Random.Range(0, 3);
-        //AudioHelper.PlayClip2D(enemyDeathSFX[random], 1);
+        
+        SFXManager.Instance.PlayGameOverSFX();
         
         _isDowned = true;
         _sr.sortingOrder = -1;

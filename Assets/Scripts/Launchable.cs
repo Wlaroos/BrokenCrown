@@ -42,6 +42,7 @@ public class Launchable : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerBullets>().Destroy();
             Knockback(other.transform.right);
+            SFXManager.Instance.PlayEnemyHitSFX();
         }
         
         // If the object is moving fast enough, deal damage to the enemy
@@ -49,6 +50,7 @@ public class Launchable : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(transform.right, _damage);
             Explode();
+            SFXManager.Instance.PlayDestructableSFX();
         }
     }
     

@@ -96,7 +96,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Shoot()
     {
-        //AudioManager.PlaySound("PoisonShot");
+        SFXManager.Instance.PlayPunchWhooshSFX();
         
         // Local variables
         Vector3 aimPosition = _aimTransform.position;

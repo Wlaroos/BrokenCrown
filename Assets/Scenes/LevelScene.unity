@@ -610,7 +610,7 @@ RectTransform:
   m_Children:
   - {fileID: 1264105801}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1378,7 +1378,7 @@ Transform:
   - {fileID: 1822629515}
   - {fileID: 1366227466}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &478847391
 GameObject:
@@ -1620,7 +1620,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1738,7 +1738,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
@@ -2623,7 +2623,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &773101470
 GameObject:
@@ -2734,7 +2734,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &783502073
 GameObject:
@@ -2886,7 +2886,7 @@ Transform:
   - {fileID: 1451353185}
   - {fileID: 1145416627}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793834813
 GameObject:
@@ -3723,7 +3723,7 @@ Transform:
   - {fileID: 1868960241}
   - {fileID: 347406797}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1132951265
 MonoBehaviour:
@@ -3809,7 +3809,7 @@ Transform:
   - {fileID: 104751620}
   - {fileID: 674586559}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166677681
 GameObject:
@@ -3977,7 +3977,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230920153
 GameObject:
@@ -4061,7 +4061,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264105800
 GameObject:
@@ -4301,7 +4301,7 @@ Transform:
   - {fileID: 296220276}
   - {fileID: 1894425746}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1302933150
 BoxCollider2D:
@@ -4602,7 +4602,7 @@ Transform:
   - {fileID: 663816374}
   - {fileID: 1839743257}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356027106
 GameObject:
@@ -4918,7 +4918,7 @@ RectTransform:
   m_Children:
   - {fileID: 346054935}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5549,7 +5549,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822629512
 GameObject:
@@ -6052,6 +6052,87 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1910923688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910923690}
+  - component: {fileID: 1910923689}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1910923689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910923688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffdd8258791fa9c4e964935f2720c3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinSFX:
+  - {fileID: 8300000, guid: c930fcbcf64f6804485cd83ceeaa8106, type: 3}
+  - {fileID: 8300000, guid: 51b06d3f6a58b5f499ab83d506dfe95b, type: 3}
+  - {fileID: 8300000, guid: 0cd9eceec4ea20a449fb8a9e374e79d7, type: 3}
+  enemyDownSFX:
+  - {fileID: 8300000, guid: 690eff0e4db7221419a22961a7d751d0, type: 3}
+  - {fileID: 8300000, guid: 16016c2c36a54e747bada77cd8237e03, type: 3}
+  enemyHitSFX:
+  - {fileID: 8300000, guid: 313ae874c82bb134ca40a09739c20d17, type: 3}
+  - {fileID: 8300000, guid: 408007c07c6f16944861a8fd988065a1, type: 3}
+  - {fileID: 8300000, guid: 8de72754684debf44b9ee7757ab57981, type: 3}
+  - {fileID: 8300000, guid: 0ea12eab4ae18b54f887ba8151bc654b, type: 3}
+  gameOverSFX:
+  - {fileID: 8300000, guid: 769af84792030cf40a82db8c93c8fb06, type: 3}
+  - {fileID: 8300000, guid: 556fafd485e6063458dcdaf7926c660a, type: 3}
+  playerHurtSFX:
+  - {fileID: 8300000, guid: 58925bf904a570149a2d8798b15ede0b, type: 3}
+  punchWhooshSFX:
+  - {fileID: 8300000, guid: 4dd981bb5f01c3849a59cbd42f2ad6ed, type: 3}
+  - {fileID: 8300000, guid: 5956b8defcb4b6d448fa1898853894e1, type: 3}
+  - {fileID: 8300000, guid: 39888837481d2dd47ac7f41b775e644a, type: 3}
+  healSFX:
+  - {fileID: 8300000, guid: 0890eccf7830e4448bd8e4dcdebd5c2c, type: 3}
+  destructableSFX:
+  - {fileID: 8300000, guid: 662869f0ac43e0240b11c9dad6c7bb3c, type: 3}
+  - {fileID: 8300000, guid: 78937ef0d3a2af74d9b9b471ba5d1f32, type: 3}
+  - {fileID: 8300000, guid: b774cd19112fcc640bbbd9ec669f3298, type: 3}
+  upgradeSFX:
+  - {fileID: 8300000, guid: 801656a5ceb79df4cab393d9b7967b9e, type: 3}
+  - {fileID: 8300000, guid: 4811a5be494c4a247aae094eb7507544, type: 3}
+  rerollSFX:
+  - {fileID: 8300000, guid: cd91c11118ae1d049bc8d04fb96b62cd, type: 3}
+  textboxHoverSFX:
+  - {fileID: 8300000, guid: 2a61ab796c5ff3048b7d98bd2fbceb8f, type: 3}
+  - {fileID: 8300000, guid: 6bdbddbacaa1e2548b0a691a5c9f0029, type: 3}
+  noMoneySFX:
+  - {fileID: 8300000, guid: 6335fd3d3badc5a44ae0b3152a3f635b, type: 3}
+--- !u!4 &1910923690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910923688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919574077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6690,7 +6771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429859346808766265, guid: 03f3f6e95b5cefb498d204010d9ed425, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7429859346808766265, guid: 03f3f6e95b5cefb498d204010d9ed425, type: 3}
       propertyPath: m_AnchorMax.x

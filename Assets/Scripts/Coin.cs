@@ -55,6 +55,8 @@ public class Coin : MonoBehaviour
                 coinPop.GetComponent<TMP_Text>().text = result.ToString("F2");
             }
             
+            SFXManager.Instance.PlayCoinSFX();
+            
             Remove();
         }
     }

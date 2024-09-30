@@ -77,6 +77,8 @@ public class ShopPedestal : MonoBehaviour
      {
          if(other.GetComponent<PlayerMovement>() != null)
          {
+             SFXManager.Instance.PlayTextboxHoverSFX();
+             
              _itemTextbox.SetActive(true);
              _isOverlapping = true;
              _itemTextbox.transform.position = transform.position + new Vector3(0, -3f, 0);
@@ -89,6 +91,8 @@ public class ShopPedestal : MonoBehaviour
      {
          if (other.GetComponent<PlayerMovement>() != null)
          {
+             SFXManager.Instance.PlayTextboxHoverSFX();
+             
              _isOverlapping = false;
              _itemTextbox.SetActive(false);
          }
@@ -103,6 +107,7 @@ public class ShopPedestal : MonoBehaviour
          else
          {
              _textPopupRef.StartFade();
+             SFXManager.Instance.PlayNoMoneySFX();
          }
      }
      
@@ -124,6 +129,9 @@ public class ShopPedestal : MonoBehaviour
          }
          
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
+         
+         SFXManager.Instance.PlayDestructableSFX();
+         SFXManager.Instance.PlayUpgradeSFX();
          
          Debug.Log("Purchased " + _item.GetComponent<BaseItem>().GetName());
      }
