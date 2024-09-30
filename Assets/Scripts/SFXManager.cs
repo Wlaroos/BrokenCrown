@@ -89,6 +89,6 @@ public class SFXManager : MonoBehaviour
     
     public void PlayNoMoneySFX()
     {
-        AudioHelper.PlayClip2D(noMoneySFX[Random.Range(0, noMoneySFX.Length)], 1f);
+        AudioHelper.PlayClip2D(noMoneySFX[Random.Range(0, noMoneySFX.Length)], .66f);
     }
 }
