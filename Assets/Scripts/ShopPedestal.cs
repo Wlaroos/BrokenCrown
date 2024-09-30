@@ -124,7 +124,7 @@ public class ShopPedestal : MonoBehaviour
          }
          
          transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
-
+         
          Debug.Log("Purchased " + _item.GetComponent<BaseItem>().GetName());
      }
 

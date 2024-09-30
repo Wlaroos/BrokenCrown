@@ -45,7 +45,7 @@ public class PlayerBullets : MonoBehaviour
 	    Destroy(gameObject, 8f);
     }
 
-    public void BulletSetup(Vector3 shootDir, float angle, bool fist)
+    public void BulletSetup(Vector3 shootDir, float angle, bool fist , float range, float shotspeed)
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         
@@ -56,11 +56,15 @@ public class PlayerBullets : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, angle);
 
         // Speed
+        _shotSpeed = shotspeed;
         float vel = _shotSpeed;
         rb.AddForce(shootDir * vel, ForceMode2D.Impulse);
         
         //Sprite
         _sr.sprite = fist ? _spriteList[0] : _spriteList[1];
+        
+        // Range
+        _range = range;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

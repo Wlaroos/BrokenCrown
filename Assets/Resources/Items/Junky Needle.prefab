@@ -98,5 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Junky Needle
-  _description: Always put random substances in your body
-  _price: 1.33
+  _description: Chemicals that make your punches slice through the air
+  _price: 0.42
+  _shotSpeedModifierAmount: 1.5

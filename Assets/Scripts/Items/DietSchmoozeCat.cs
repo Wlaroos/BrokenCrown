@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class DietSchmoozeCat : BaseItem
 {
+    [SerializeField] private float _rangeModifierAmount = 1.33f;
+    
     protected override void ItemEffects()
     {
-        // Add the effect to the player
+        PlayerStats.Instance.ChangeRange(_rangeModifierAmount);
+    }
+    
+    protected override void Upgrade()
+    {
+        ItemEffects();
+        PlayerStats.Instance.RemoveItemFromPool(_name);
     }
 }

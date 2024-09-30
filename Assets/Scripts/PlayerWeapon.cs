@@ -18,7 +18,11 @@ public class PlayerWeapon : MonoBehaviour
 
     [SerializeField] private bool _isAuto;
     [SerializeField] private float _initialFireRate;
+    [SerializeField] private float _initialRange;
+    [SerializeField] private float _initialShotSpeed;
+    private float _shotSpeed;
     private float _fireRate;
+    private float _range;
     private float _startFireTime;
 
     private bool _gunEndPoint = true;
@@ -30,6 +34,8 @@ public class PlayerWeapon : MonoBehaviour
     {
         _ph = GetComponentInParent<PlayerHealth>();
         _fireRate = _initialFireRate;
+        _range = _initialRange;
+        _shotSpeed = _initialShotSpeed;
     }
 
     private void OnEnable()
@@ -64,20 +70,6 @@ public class PlayerWeapon : MonoBehaviour
         Vector3 aimDir = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle - 90);
-        
-        // Flip
-        /*
-        Vector3 aimLocalScale = Vector3.one;
-        if (angle > 90 || angle < -90)
-        {
-            aimLocalScale.x = -1f;
-        }
-        else
-        {
-            aimLocalScale.x = 1f;
-        }
-        transform.localScale = aimLocalScale;
-        */
     }
 
     private void ShootCheck()
@@ -130,7 +122,7 @@ public class PlayerWeapon : MonoBehaviour
         Vector3 shootDir = (aimPosition - transform.position).normalized;
         
         // Create and setup the bullet
-        bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, _gunEndPoint);
+        bulletTransform.GetComponent<PlayerBullets>().BulletSetup(shootDir, angle, _gunEndPoint, _range, _shotSpeed);
         
         // Boolean for alternating firing position
         _gunEndPoint = !_gunEndPoint;
@@ -155,5 +147,9 @@ public class PlayerWeapon : MonoBehaviour
     {
         float fireRate = _initialFireRate * PlayerStats.Instance.FireRateModifier;
         _fireRate = fireRate;
+        float range = _initialRange * PlayerStats.Instance.RangeModifier;
+        _range = range;
+        float shotSpeed = _initialShotSpeed * PlayerStats.Instance.ShotSpeedModifier;
+        _shotSpeed = shotSpeed;
     }
 }

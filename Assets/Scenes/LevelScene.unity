@@ -2696,6 +2696,8 @@ MonoBehaviour:
   _shootTransform2: {fileID: 1166677682}
   _isAuto: 1
   _initialFireRate: 2.5
+  _initialRange: 2
+  _initialShotSpeed: 10
 --- !u!1 &795900058
 GameObject:
   m_ObjectHideFlags: 0

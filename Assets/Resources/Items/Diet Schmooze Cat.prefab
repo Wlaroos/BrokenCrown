@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308d63d31456c714aa2c715a891a58b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Diet Schmooze Cat
-  _description: Banned in 248 countries and counting
-  _price: 1.87
+  _name: Diet Schmooze
+  _description: Banned in 248 countries! It'll increase your punch range
+  _price: 0.38
+  _rangeModifierAmount: 1.33

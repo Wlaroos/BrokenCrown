@@ -19,6 +19,10 @@ public class PlayerStats : MonoBehaviour
     
     public float FireRateModifier { get; private set; } = 1f;
 
+    public float RangeModifier { get; private set; } = 1f;
+    
+    public float ShotSpeedModifier { get; private set; } = 1f;
+    
     // Events
     public UnityEvent MoneyChangeEvent;
     public UnityEvent StatChangeEvent;
@@ -98,6 +102,18 @@ public class PlayerStats : MonoBehaviour
     public void ChangeFireRate(float amount)
     {
         FireRateModifier *= amount;
+        StatChangeEvent.Invoke();
+    }
+    
+    public void ChangeRange(float amount)
+    {
+        RangeModifier *= amount;
+        StatChangeEvent.Invoke();
+    }
+
+    public void ChangeShotSpeed(float amount)
+    {
+        ShotSpeedModifier *= amount;
         StatChangeEvent.Invoke();
     }
 }
