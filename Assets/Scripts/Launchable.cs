@@ -38,16 +38,16 @@ public class Launchable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If the object is a player bullet, destroy the bullet and apply knockback
-        if (other.GetComponent<PlayerBullets>() != null && !_isDestroyed)
+        if (other.gameObject.GetComponent<PlayerBullets>() != null && !_isDestroyed)
         {
-            other.GetComponent<PlayerBullets>().Destroy();
+            other.gameObject.GetComponent<PlayerBullets>().Destroy();
             Knockback(other.transform.right);
         }
         
         // If the object is moving fast enough, deal damage to the enemy
-        if (other.GetComponent<EnemyHealth>() != null && !_isDestroyed && _wasHit && _rb.velocity.magnitude > 1f)
+        if (other.gameObject.GetComponent<EnemyHealth>() != null && !_isDestroyed && _wasHit && _rb.velocity.magnitude > 1f)
         {
-            other.GetComponent<EnemyHealth>().TakeDamage(transform.right, _damage);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(transform.right, _damage);
             Explode();
         }
     }

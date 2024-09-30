@@ -48,7 +48,7 @@ public class LaunchableReuse : MonoBehaviour
     private IEnumerator Hitbox()
     {
         _wasHit = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.75f);
         _wasHit = false;
     }
     

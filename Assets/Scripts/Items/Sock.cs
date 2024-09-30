@@ -13,8 +13,8 @@ public class Sock : BaseItem
        _cc = gameObject.AddComponent<CircleCollider2D>();
        _cc.isTrigger = true;
        _cc.radius = 5f;
-       _description = "More magnets = more reach and speed!";
-       PlayerStats.Instance.SetItemStats(_name, newDescription:_description);
+       //_description = "More magnets = more reach and speed!";
+       //PlayerStats.Instance.SetItemStats(_name, newDescription:_description);
     }
     
     private void OnTriggerStay2D(Collider2D other)

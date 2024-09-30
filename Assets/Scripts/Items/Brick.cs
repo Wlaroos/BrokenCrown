@@ -7,9 +7,9 @@ public class Brick : BaseItem
     protected override void ItemEffects()
     {
         Instantiate(_brickPrefab, new Vector3(Random.Range(-9, 9), Random.Range(-8, 8), 0), Quaternion.identity);
-        var newName = "Brick 2.0";
-        _description = "It's literally just another brick";
-        PlayerStats.Instance.SetItemStats(_name, newName, _description);
+        //var newName = "Brick 2.0";
+        //_description = "It's literally just another brick";
+        //PlayerStats.Instance.SetItemStats(_name, newName, _description);
     }
     
     protected override void Upgrade()

@@ -9,8 +9,8 @@ public class Shoe : BaseItem
     protected override void ItemEffects()
     {
         PlayerStats.Instance.ChangeMoveSpeed(_movementSpeedAmount);
-        _description = "You've found a second shoe! You move even FASTER!";
-        PlayerStats.Instance.SetItemStats(_name, newDescription:_description);
+        //_description = "You've found a second shoe! You move even FASTER!";
+        //PlayerStats.Instance.SetItemStats(_name, newDescription:_description);
     }
     
     protected override void Upgrade()
