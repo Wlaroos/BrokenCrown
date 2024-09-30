@@ -124,7 +124,7 @@ public class WaveSpawner : MonoBehaviour
     // Method to determine the number of enemies per wave
     private int GetEnemiesPerWave(int waveIndex)
     {
-        return 3 + waveIndex; // 3 enemies in the first wave, 4 in the second, etc.
+        return 3 + (waveIndex + 1); // 3 enemies in the first wave, 5 in the second, etc.
         
         // Animation curve??
     }

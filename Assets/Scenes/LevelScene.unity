@@ -2239,7 +2239,7 @@ MonoBehaviour:
   - {fileID: 7094694800428560118, guid: f1024720f6b787548827a77fe9e59887, type: 3}
   - {fileID: 7094694800428560118, guid: 18b741dd80708e84e913088969f288b6, type: 3}
   - {fileID: 7094694800428560118, guid: cc005b236bf4fb54981f955077aef3ec, type: 3}
-  _numberOfWaves: 1
+  _numberOfWaves: 7
   _spawnInterval: 2
   _waveDelay: 2
   _cameraTrigger: {fileID: 1302933148}

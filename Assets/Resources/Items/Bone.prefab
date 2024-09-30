@@ -100,5 +100,5 @@ MonoBehaviour:
   _name: Bone
   _description: Spawns a bone in the level that you can hit into people. Be careful,
     it splinters...
-  _price: 0.46
+  _price: 0.47
   _bonePrefab: {fileID: 2091165892150416933, guid: a79c078679df3f044b4abe6e33f11a26, type: 3}
