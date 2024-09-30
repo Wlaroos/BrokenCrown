@@ -660,7 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameMusic: {fileID: 8300000, guid: a5519dcb36aea45488b1b20e83801473, type: 3}
   _deathMusic: {fileID: 8300000, guid: fdd95eda224407345bd33ed05c178d5f, type: 3}
-  _maxVolume: 0.25
+  _maxVolume: 0.1
   _timeToFade: 1.5
 --- !u!4 &116217777
 Transform:

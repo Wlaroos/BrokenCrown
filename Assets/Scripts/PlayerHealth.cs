@@ -49,6 +49,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!_isInvincible)
         {
+            SFXManager.Instance.PlayPlayerHurtSFX();
+            
             // Knockback
             GetComponent<PlayerMovement>().Knockback(force, _stunTime);
             
@@ -88,8 +90,6 @@ public class PlayerHealth : MonoBehaviour
             
             HealthChangeEvent.Invoke();
         }
-
-        SFXManager.Instance.PlayPlayerHurtSFX();
     }
     
     public void Heal(int amount)
