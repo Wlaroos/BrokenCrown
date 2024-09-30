@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.Mathematics;
@@ -33,7 +34,17 @@ public class PlayerHealth : MonoBehaviour
         _sr = GetComponentInChildren<SpriteRenderer>();
         _currentHealth = _maxHealth;
     }
-    
+
+    private void OnEnable()
+    {
+        WaveSpawner.Instance.FinalWaveCompleteEvent.AddListener(SetDowned);
+    }
+
+    private void OnDisable()
+    {
+        WaveSpawner.Instance.FinalWaveCompleteEvent.RemoveListener(SetDowned);
+    }
+
     public void TakeDamage(Vector2 force,int damage)
     {
         if (!_isInvincible)
@@ -115,31 +126,13 @@ public class PlayerHealth : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0,0,90);
         
-        StartCoroutine(FadeIn(2f));
-        
         transform.GetChild(2).gameObject.SetActive(false);
         
         PlayerDeathEvent.Invoke();
     }
-    
-    private IEnumerator FadeIn(float fadeDuration)
+
+    private void SetDowned()
     {
-        SpriteRenderer sr = _deathScreen.GetComponent<SpriteRenderer>(); 
-        TMP_Text _text = _deathScreen.GetComponentInChildren<TMP_Text>();
-        
-        sr.color = Color.clear;
-        _text.alpha = 0;
-        
-        float elapsedTime = 0f;
-        
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            
-            sr.color = Color.Lerp(Color.clear, new Color32(0,0,0,150), elapsedTime / fadeDuration);
-            _text.alpha = Mathf.Lerp(0, 1, elapsedTime / fadeDuration);
-            
-            yield return null;
-        }
+        _isDowned = true;
     }
 }

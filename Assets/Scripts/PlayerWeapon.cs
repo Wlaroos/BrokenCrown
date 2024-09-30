@@ -42,12 +42,14 @@ public class PlayerWeapon : MonoBehaviour
     {
         _allowInput = true;
         _ph.PlayerDeathEvent.AddListener(DisableInput);
+        WaveSpawner.Instance.FinalWaveCompleteEvent.AddListener(DisableInput);
         PlayerStats.Instance.StatChangeEvent.AddListener(StatChanges);
     }
     
     private void OnDisable()
     {
         _ph.PlayerDeathEvent.RemoveListener(DisableInput);
+        WaveSpawner.Instance.FinalWaveCompleteEvent.RemoveListener(DisableInput);
         PlayerStats.Instance.StatChangeEvent.RemoveListener(StatChanges);
     }
 

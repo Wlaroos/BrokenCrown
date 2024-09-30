@@ -31,12 +31,14 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         _ph.PlayerDeathEvent.AddListener(PlayerDowned);
+        WaveSpawner.Instance.FinalWaveCompleteEvent.AddListener(PlayerDowned);
         PlayerStats.Instance.StatChangeEvent.AddListener(StatChanges);
     }
     
     private void OnDisable()
     {
         _ph.PlayerDeathEvent.RemoveListener(PlayerDowned);
+        WaveSpawner.Instance.FinalWaveCompleteEvent.RemoveListener(PlayerDowned);
         PlayerStats.Instance.StatChangeEvent.RemoveListener(StatChanges);
     }
 
