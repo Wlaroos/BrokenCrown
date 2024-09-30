@@ -115,7 +115,7 @@ public class WaveSpawner : MonoBehaviour
                 break;
         }
 
-        GameObject enemy = Instantiate(_enemyPrefabs[Random.Range(0,2)], spawnPosition, Quaternion.identity);
+        GameObject enemy = Instantiate(_enemyPrefabs[Random.Range(0,_enemyPrefabs.Length)], spawnPosition, Quaternion.identity);
         _enemyList.Add(enemy);
         
     }
